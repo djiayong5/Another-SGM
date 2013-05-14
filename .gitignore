@@ -2,6 +2,6 @@ sgm/Debug/
 sgm/simple-debug
 
 evals/
-*.vcxproj
+*.vcxproj*
 *.tlog
 *.opensdf
