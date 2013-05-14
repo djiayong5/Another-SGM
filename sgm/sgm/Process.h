@@ -41,7 +41,8 @@ Mat simpleProcess(const Mat& left, const Mat& right){
 	const MatND censusCostsLeft = calculateCensusCost(censusRight, censusLeft, max_disp, -1);  
 	const MatND censusCostsRight = calculateCensusCost(censusLeft, censusRight, max_disp, 1);  
 
-	const Mat dispL = DynamicImage().calculateDisparity(right, left, censusCostsLeft, size, max_disp, penalty1, penalty2);
+	DynamicDirection dd(right, left, censusCostsLeft, size, max_disp, penalty1, penalty2);
+	const Mat dispL = DynamicImage().calculateDisparity(size , max_disp, dd);
 	//const Mat dispR = DynamicImage().calculateDisparity(left, right, censusCostsRight, size, max_disp, penalty1, penalty2);
 
 	//stereoMedianBlur(dispL, dispR);
@@ -70,8 +71,8 @@ Mat processWithRange(const Mat& left, const Mat& right, Mat& minDisp, Mat& maxDi
 
 	const MatND censusCostsLeft = calculateCensusCost(censusRight, censusLeft, max_disp, -1);  
 	const MatND censusCostsRight = calculateCensusCost(censusLeft, censusRight, max_disp, 1);  
-
-	const Mat dispL = DynamicImageWithRange().calculateDisparity(right, left, censusCostsLeft, size, max_disp, penalty1, penalty2, minDisp, maxDisp);
+	DynamicDirectionRange dd(right, left, censusCostsLeft, size, max_disp, penalty1, penalty2, minDisp, maxDisp);
+	const Mat dispL = DynamicImage().calculateDisparity(size, max_disp, dd);
 	//stereoMedianBlur(dispL, dispR);
 	Mat disp = dispL;
 	imageProcessTimer.finish();
@@ -105,7 +106,7 @@ Mat processWithRange(const Mat& left, const Mat& right){
 	Mat maxDisp = realDisp.clone();
 	for(int y = 0; y < realDisp.size().height; ++y){
 		for(int x = 0; x < realDisp.size().width; ++x){
-			int d = *realDisp.ptr<ushort>(y,x);
+			ushort d = *realDisp.ptr<ushort>(y,x);
 			if( d == 0 || d == (ushort) -1){
 				*minDisp.ptr<ushort>(y,x) = 0;
 				*maxDisp.ptr<ushort>(y,x) = max_disp;

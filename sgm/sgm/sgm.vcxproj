@@ -79,7 +79,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>X:\opencv\build\x86\vc11\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opencv_core244d.lib;opencv_highgui244d.lib;opencv_video244d.lib;opencv_ml244d.lib;opencv_legacy244d.lib;opencv_calib3d244d.dll;opencv_imgproc244d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_core244d.lib;opencv_highgui244d.lib;opencv_video244d.lib;opencv_ml244d.lib;opencv_legacy244d.lib;opencv_calib3d244d.lib;opencv_imgproc244d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='simple-debug|Win32'">

@@ -10,6 +10,7 @@
 #include "Properties.h"
 #include "Utils.h"
 
+;
 using namespace cv;
 using namespace std;
 
@@ -18,10 +19,12 @@ std::ofstream log_disp("img_disp.txt");
 
 class DynamicDirection{
 public:
-	DynamicDirection(const Mat& left, const Mat& right, const MatND& costs,  const Size& size, const int& max_disp, const Point2i& direction, const int& penalty1, const int& penalty2) 
-		: costs(costs), left(left), right(right), penalty1(penalty1), penalty2(penalty2), size(size), max_disp(max_disp), direction(direction) {}
+	DynamicDirection(const Mat& left, const Mat& right, const MatND& costs,  const Size& size, const int& max_disp, const int& penalty1, const int& penalty2) 
+		: costs(costs), left(left), right(right), penalty1(penalty1), penalty2(penalty2), size(size), max_disp(max_disp) {}
 
-	MatND calculateL(){
+	virtual MatND calculateL(const Point2i& direction){
+
+		this->direction = direction;
 		int sizes[3];
 		sizes[0] = size.height;
 		sizes[1] = size.width;
@@ -38,55 +41,54 @@ public:
 				}
 			}
 		}
+
+		timer.start("Dynamic direction calculating2");
 		while(!queue.empty()){
 			Point2i p = queue.front();
 			queue.pop();
 			const Point2i prev = prevPoint(p);
-
-			
-			const uchar* l_iter;
+			const uchar* l_iter_prev;
 			if(isInside(prev)) 
-				l_iter = l.ptr<uchar>(prev.y,prev.x);
+				l_iter_prev = l.ptr<uchar>(prev.y,prev.x);
 			const uchar* curr_iter = costs.ptr<uchar>(p.y,p.x);
 
 			int min = 255;
+
+
+
 			for(int i = 0; i < max_disp; ++i){
-				min = std::min(min, get(l_iter, prev, i));
+				min = std::min(min, get(l_iter_prev, prev, i));
 			}
 
+			uchar* l_iter = l.ptr<uchar>(p.y,p.x);
 
 			for(int d = 0; d < max_disp; ++d){
 				int curr = curr_iter[d]; 
-				int a = get(l_iter, prev,d);
-				int b = get(l_iter, prev,d - 1);
-				int c = get(l_iter, prev,d + 1);
+				int a = get(l_iter_prev, prev,d);
+				int b = get(l_iter_prev, prev,d - 1);
+				int c = get(l_iter_prev, prev,d + 1);
 
-
-				//todo penalty2 update
 				int bestValue = a;
 				bestValue = std::min(bestValue, min + penalty2);
 				bestValue = std::min(bestValue, b + penalty1);
 				bestValue = std::min(bestValue, c + penalty1);
-				if( p.y == 32 && p.x == 22)
-						log_disp << " y " << p.y << " x " << p.x << 
-						" d " << d << " a " << a << " b " << b << " c " << c << " min "
-						<< min << " curr " << curr << " bv "  << bestValue << "\n";
 				bestValue = curr + bestValue - min;
 				bestValue = std::min(bestValue, 255);
-				
-				*l.ptr<uchar>(p.y,p.x,d) = bestValue; 
+
+				l_iter[d] = bestValue; //todo
 			}
 
 			const Point2i next = nextPoint(p);
 			if(isInside(next)){
 				queue.push(next);
 			}
-
 		}
+		timer.finish();
+
 		return l;
 	}
 
-private:
+protected:
 	//unused now
 	int getPenalty2(Point2i prev, Point2i p){
 		if(!isInside(prev)){
@@ -132,7 +134,7 @@ private:
 	const int max_disp;
 	const int penalty1;
 	const int penalty2;
-	const Point2i direction;
+	Point2i direction;
 };
 
 
@@ -141,15 +143,24 @@ public:
 
 	//calculate disparity map via sgm
 	// a,b - costs
-	Mat calculateDisparity(const Mat& left, const Mat& right, const MatND& costs, const Size size, const int max_disp, int penalty1, int penalty2){
+	Mat calculateDisparity(const Size& size, const int max_disp, DynamicDirection& dd){
 		Mat s(size, CV_16U);
-		MatND l[DIRS];
-
+		int sizes[3];
+		sizes[0] = size.height;
+		sizes[1] = size.width;
+		sizes[2] = max_disp;
+		MatND sum(3, sizes, CV_16U, Scalar(0));
 		for(int i = 0; i < DIRS; ++i){
-			timer.start("Dynamic direction calculating");
-			DynamicDirection dd(left, right, costs, size, max_disp, Point2i(r_x[i], r_y[i]), penalty1, penalty2);
-			l[i] = dd.calculateL();
-			timer.finish();
+			MatND l = dd.calculateL(Point2i(r_x[i], r_y[i]));
+			for(int y = 0; y < size.height; ++y){
+				for(int x = 0; x < size.width; ++x){
+					ushort* sum_iter = sum.ptr<ushort>(y,x);
+					const uchar* l_iter = l.ptr<uchar>(y,x);
+					for(int d = 0; d < max_disp; ++d){
+						sum_iter[d] += l_iter[d];
+					}
+				}
+			}
 		}
 
 		timer.start("Sum and best calculating");
@@ -158,31 +169,11 @@ public:
 				int minD = -1;
 				int min = 10000;
 				for(int d = 0; d < max_disp; ++d){
-					int sum = 0;
-					for(int i = 0; i < DIRS; ++i){
-						if( y == -32 && x == 22)
-						log_disp << "y " << y << " x " << x << 
-						" d " << d << " l " << (int) *l[i].ptr<uchar>(y,x,d) << "\n";
-						
-						sum += *l[i].ptr<uchar>(y,x,d);
-					}
-					if(min > sum){
-						min = sum;
+					if(min > *sum.ptr<ushort>(y,x,d)){
+						min = *sum.ptr<ushort>(y,x,d);
 						minD = d;
-						if(y == -32 && x == 22)
-							log_disp << " current best " << minD << " with " << sum << "\n";
 					}
-					if( y == -32 && x == 22)
-						log_disp << "y " << y << " x " << x << 
-						" d " << d << " cost " << sum << "\n";
-					
-
 				}
-
-				if( y == -32)
-				log_disp << "y " << y << " x " << x << 
-				" minD " << minD << "\n";
-				
 				*s.ptr<ushort>(y, x) = minD;
 			}
 		}

@@ -37,6 +37,21 @@ Mat unscaleDisp(Mat in){
 	return in / scale;
 }
 
+class Environment {
+public:
+	Mat left;
+	Mat right;
+	const int max_disp;
+	const int penalty1;
+	const int penalty2;
+	const Size block; 
+	const int sp;
+	const int sr;
+	const int delta;
+
+	Mat maxDisp;
+	Mat minDisp;
+}
 
 /*
 opencv_core244d.lib

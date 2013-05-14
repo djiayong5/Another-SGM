@@ -21,10 +21,16 @@ using namespace std;
 
 void test(int type){
 	const string path("X:\\Dropbox\\SGM\\dataset\\test\\");
-	const string files[] = {"tsukuba", "venus", "cones", "teddy", "Aloe", "Cloth4", "half_alloe", "full_alloe"};
-	const int scales[] = { 16, 8, 4, 4, 1, 1, 1, 1};
-	const int max_disps[] = {70, 70, 70, 70, 70, 70, 350, 50};
-	for(int i = 6; i < 7; ++i){
+	const string files[] = {"tsukuba", "venus", "cones",  
+							"teddy", "Aloe", "Cloth4", 
+							"half_alloe", "half_alloe", "half_alloe", 
+							"half_alloe", "half_alloe", "full_alloe"};
+	const int scales[] = { 16, 8, 4, 4, 1, 1, 1, 1, 1, 1, 1};
+	const int max_disps[] = {70, 70, 70,  
+							70, 70, 70, 
+							100, 150, 250, 
+							300, 350, 150};
+	for(int i = 6; i < 10; ++i){
 		const string file = files[i] + "\\";
 		const Mat left = imread(path + file + "imL.png", 0);
 		const Mat right = imread(path + file + "imR.png", 0);
@@ -42,7 +48,29 @@ void test(int type){
 	}
 }
 
-
+void test2(){
+	const string path("X:\\Dropbox\\SGM\\dataset\\test\\");
+	for(int max_disp = 100; max_disp < 350; max_disp += 50){
+		const Mat left = imread(path + "half_alloe\\imL.png", 0);
+		const Mat right = imread(path + "half_alloe\\imR.png", 0);
+		const Mat readDisp = imread(path + "disps\\half_alloe_RANGE.png", 0);
+		Mat estDisp;
+		readDisp.convertTo(estDisp, CV_16U, 1);
+		Mat minDisp = estDisp.clone();
+		Mat maxDisp = estDisp.clone();
+		for(int y = 0; y < estDisp.size().height; ++y){
+			for(int x = 0; x < estDisp.size().width; ++x){
+				ushort d = *estDisp.ptr<ushort>(y,x);
+				*minDisp.ptr<ushort>(y,x) = std::max(0, d - delta);
+				*maxDisp.ptr<ushort>(y,x) = std::min(max_disp, d + delta);
+			}
+		}
+		
+		Mat	disp = processWithRange(left, right, minDisp, maxDisp);
+		std::cout << max_disp << "\n";
+		cv::imwrite(path + "disps\\half_alloe_RANGE_2.png", disp * 256);
+	}
+}
 
 std::ofstream logger("log.txt");
 
@@ -62,10 +90,11 @@ void calError(){
 }
 
 int main(){
+	test2();
 	std::cout << "SIMPLE\n";
 	//test(SIMPLE);
 	std::cout << "RANGE\n";
-	test(RANGE);
+	//test(RANGE);
 	std::cout << "HAPPY END";
 	getchar();
 	//	temp2();

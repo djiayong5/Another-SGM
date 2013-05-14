@@ -1,4 +1,4 @@
-﻿Build started 14.05.2013 10:26:28.
+﻿Build started 14.05.2013 13:58:48.
      1>Project "X:\Dropbox\SGM\sgm\sgm\sgm.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IX:\opencv\build\include /IX:\opencv\build\include\opencv2 /nologo /W3 /WX- /O2 /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"simple-debug\\" /Fd"simple-debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -14,4 +14,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.99
+Time Elapsed 00:00:03.34
