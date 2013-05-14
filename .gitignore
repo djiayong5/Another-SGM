@@ -4,3 +4,4 @@ sgm/simple-debug
 evals/
 *.vcxproj
 *.tlog
+*.opensdf
