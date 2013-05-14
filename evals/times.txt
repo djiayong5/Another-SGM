@@ -1,0 +1,8 @@
+450*375
+
+1- проба
+2 - median blur. С unique constraint качество падает((((((
+3 - поиграл с параметрами penalty1 and penalty2
+
+Время работы
+1 - 12.5 с
