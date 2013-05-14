@@ -1,7 +1,14 @@
 sgm/Debug/
 sgm/simple-debug
+sgm/sgm/Debug/
+sgm/sgm/simple-debug/
 
 evals/
 *.vcxproj*
 *.tlog
 *.opensdf
+*.sdf
+*.sln
+pdfs.lnk
+*.suo
+

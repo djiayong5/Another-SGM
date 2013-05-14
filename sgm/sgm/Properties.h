@@ -9,3 +9,8 @@ const Size block(5,5);
 const int sp = 10;
 const int sr = 30;
 const int delta = 10;
+
+#define FAST 1
+#define QUALITY 0 
+
+const int rangeAlgType = QUALITY;

@@ -35,13 +35,11 @@ Mat simpleProcess(const Mat& left, const Mat& right){
 	imageProcessTimer.start(stringStream.str());
 
 	const Size size = left.size();
-	const Mat censusLeft = calculateCensus(left, block);
-	const Mat censusRight = calculateCensus(right, block);
 
-	const MatND censusCostsLeft = calculateCensusCost(censusRight, censusLeft, max_disp, -1);  
-	const MatND censusCostsRight = calculateCensusCost(censusLeft, censusRight, max_disp, 1);  
-
-	DynamicDirection dd(right, left, censusCostsLeft, size, max_disp, penalty1, penalty2);
+	CostCalculator& costs = SimpleCostCalculator(right, left, block, max_disp, -1);
+	//CostCalculator& costs = RuntimeCostCalculator(right, left, block, max_disp, -1);
+	DynamicDirection dd(right, left, costs , size, max_disp, penalty1, penalty2);
+	
 	const Mat dispL = DynamicImage().calculateDisparity(size , max_disp, dd);
 	//const Mat dispR = DynamicImage().calculateDisparity(left, right, censusCostsRight, size, max_disp, penalty1, penalty2);
 
@@ -66,12 +64,10 @@ Mat processWithRange(const Mat& left, const Mat& right, Mat& minDisp, Mat& maxDi
 	imageProcessTimer.start(stringStream.str());
 
 	const Size size = left.size();
-	const Mat censusLeft = calculateCensus(left, block);
-	const Mat censusRight = calculateCensus(right, block);
-
-	const MatND censusCostsLeft = calculateCensusCost(censusRight, censusLeft, max_disp, -1);  
-	const MatND censusCostsRight = calculateCensusCost(censusLeft, censusRight, max_disp, 1);  
-	DynamicDirectionRange dd(right, left, censusCostsLeft, size, max_disp, penalty1, penalty2, minDisp, maxDisp);
+	
+	CostCalculator& costs = SimpleCostCalculator(right, left, block, max_disp, -1);
+	//CostCalculator& costs = RuntimeCostCalculator(right, left, block, max_disp, -1);
+	DynamicDirectionRange dd(right, left, costs, size, max_disp, penalty1, penalty2, minDisp, maxDisp);
 	const Mat dispL = DynamicImage().calculateDisparity(size, max_disp, dd);
 	//stereoMedianBlur(dispL, dispR);
 	Mat disp = dispL;
@@ -80,9 +76,9 @@ Mat processWithRange(const Mat& left, const Mat& right, Mat& minDisp, Mat& maxDi
 }
 
 Mat addCols(const Mat& m, size_t sz){
-    Mat tm(m.rows, m.cols + sz, m.type());
-    m.copyTo(tm(Rect(Point(sz, 0), m.size())));
-    return tm;
+	Mat tm(m.rows, m.cols + sz, m.type());
+	m.copyTo(tm(Rect(Point(sz, 0), m.size())));
+	return tm;
 }
 Mat processWithRange(const Mat& left, const Mat& right){
 	timer.start("Calculating estimated disparity");
@@ -101,15 +97,20 @@ Mat processWithRange(const Mat& left, const Mat& right){
 		}
 	}	
 
-	
+
 	Mat minDisp = realDisp.clone();
 	Mat maxDisp = realDisp.clone();
 	for(int y = 0; y < realDisp.size().height; ++y){
 		for(int x = 0; x < realDisp.size().width; ++x){
 			ushort d = *realDisp.ptr<ushort>(y,x);
-			if( d == 0 || d == (ushort) -1){
-				*minDisp.ptr<ushort>(y,x) = 0;
-				*maxDisp.ptr<ushort>(y,x) = max_disp;
+			if(d == 0 || d == (ushort) -1){
+				if(rangeAlgType == QUALITY ){
+					*minDisp.ptr<ushort>(y,x) = 0;
+					*maxDisp.ptr<ushort>(y,x) = max_disp;
+				} else {
+					*minDisp.ptr<ushort>(y,x) = x == 0 ? 0 : *minDisp.ptr<ushort>(y,x - 1);
+					*maxDisp.ptr<ushort>(y,x) = x == 0 ? 0 : *maxDisp.ptr<ushort>(y,x - 1);	
+				}
 			} else {
 				*minDisp.ptr<ushort>(y,x) = std::max(0, d - delta);
 				*maxDisp.ptr<ushort>(y,x) = std::min(max_disp, d + delta);
@@ -118,8 +119,8 @@ Mat processWithRange(const Mat& left, const Mat& right){
 	}
 	/*imshow("a", minDisp * 256);
 	imshow("b", maxDisp * 256);
-	waitKey();*/
-
+	waitKey();
+	*/
 	timer.finish();
 	return processWithRange(left,right, minDisp, maxDisp);
 }

@@ -30,7 +30,7 @@ void test(int type){
 							70, 70, 70, 
 							100, 150, 250, 
 							300, 350, 150};
-	for(int i = 6; i < 10; ++i){
+	for(int i = 0; i < 1; ++i){
 		const string file = files[i] + "\\";
 		const Mat left = imread(path + file + "imL.png", 0);
 		const Mat right = imread(path + file + "imR.png", 0);
@@ -50,7 +50,7 @@ void test(int type){
 
 void test2(){
 	const string path("X:\\Dropbox\\SGM\\dataset\\test\\");
-	for(int max_disp = 100; max_disp < 350; max_disp += 50){
+	for(int curr_disp = 100; curr_disp < 350; curr_disp += 50){
 		const Mat left = imread(path + "half_alloe\\imL.png", 0);
 		const Mat right = imread(path + "half_alloe\\imR.png", 0);
 		const Mat readDisp = imread(path + "disps\\half_alloe_RANGE.png", 0);
@@ -58,6 +58,7 @@ void test2(){
 		readDisp.convertTo(estDisp, CV_16U, 1);
 		Mat minDisp = estDisp.clone();
 		Mat maxDisp = estDisp.clone();
+		max_disp = curr_disp;
 		for(int y = 0; y < estDisp.size().height; ++y){
 			for(int x = 0; x < estDisp.size().width; ++x){
 				ushort d = *estDisp.ptr<ushort>(y,x);
@@ -90,11 +91,11 @@ void calError(){
 }
 
 int main(){
-	test2();
+	//test2();
 	std::cout << "SIMPLE\n";
 	//test(SIMPLE);
 	std::cout << "RANGE\n";
-	//test(RANGE);
+	test(RANGE);
 	std::cout << "HAPPY END";
 	getchar();
 	//	temp2();
