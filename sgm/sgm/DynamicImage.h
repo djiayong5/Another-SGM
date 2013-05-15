@@ -34,16 +34,16 @@ using namespace std;
 //It can be done faster by 2 passes for all directions, but .....
 class DynamicDirection{
 public:
-	DynamicDirection(const Mat& left, const Mat& right, const CostCalculator& costs,  const Size& size, const int& max_disp, const int& penalty1, const int& penalty2) 
-		: costs(costs), left(left), right(right), penalty1(penalty1), penalty2(penalty2), size(size), max_disp(max_disp) {}
+	DynamicDirection(const Mat& left, const Mat& right, const CostCalculator& costs,  const Size& size, const int& max_disp_range, const int& penalty1, const int& penalty2) 
+		: costs(costs), left(left), right(right), penalty1(penalty1), penalty2(penalty2), size(size), max_disp_range(max_disp_range) {}
 
 	virtual MatND calculateL(const Point2i& direction){
-		timer.start("Dynamic direction calculating");
+		timer.start("Dynamic direction init");
 		this->direction = direction;
 		int sizes[3];
 		sizes[0] = size.height;
 		sizes[1] = size.width;
-		sizes[2] = max_disp;
+		sizes[2] = max_disp_range;
 
 		l = MatND(3, sizes, CV_8U, Scalar(255));
 
@@ -58,7 +58,7 @@ public:
 		}
 		timer.finish();
 
-		timer.start("Phase2");
+		timer.start("Dynamic direction calculating");
 
 		while(!queue.empty()){
 			const Point2i p = queue.front();
@@ -83,7 +83,7 @@ protected:
 		//todo prev not in mat?
 		if(isInside(prev)) {
 			l_iter_prev = l.ptr<uchar>(prev.y,prev.x);
-			prevFromDisp = 0;//getFromDisp(prev);
+			prevFromDisp = getFromDisp(prev);
 		}
 
 		uchar* l_iter = l.ptr<uchar>(p.y,p.x);
@@ -121,7 +121,7 @@ protected:
 		return 0;
 	}
 	virtual int getToDisp(const Point2i& p){
-		return max_disp;
+		return max_disp_range;
 	}
 
 	Point2i prevPoint(const Point2i& p){
@@ -154,7 +154,7 @@ protected:
 	const Mat right;
 	const CostCalculator& costs;
 	const Size size;
-	const int max_disp;
+	const int max_disp_range;
 	const int penalty1;
 	const int penalty2;
 	Point2i direction;

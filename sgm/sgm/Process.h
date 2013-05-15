@@ -55,9 +55,11 @@ Mat processWithRange(const Mat& left, const Mat& right, Mat& minDisp, Mat& maxDi
 	
 	//CostCalculator& costs = SimpleCostCalculator(right, left, block, max_disp, -1);
 	CostCalculator& costs = RuntimeCostCalculator(right, left, block, max_disp, -1);
-	
-	DynamicDirectionRange dd(right, left, costs, size, max_disp, penalty1, penalty2, minDisp, maxDisp); 
-	DynamicImageWithRange dynamicImageRange(max_disp, minDisp, maxDisp);
+
+	ushort maxDispRange = rangeAlgType == FAST ? 2 * delta : max_disp; //todo change to real calculating
+
+	DynamicDirectionRange dd(right, left, costs, size, maxDispRange, penalty1, penalty2, minDisp, maxDisp); 
+	DynamicImageWithRange dynamicImageRange(maxDispRange, minDisp, maxDisp);
 	
 	const Mat dispL = dynamicImageRange.calculateDisparity(size, dd);
 	//stereoMedianBlur(dispL, dispR);
@@ -105,6 +107,9 @@ Mat processWithRange(const Mat& left, const Mat& right){
 			} else {
 				*minDisp.ptr<ushort>(y,x) = std::max(0, d - delta);
 				*maxDisp.ptr<ushort>(y,x) = std::min(max_disp, d + delta);
+			}
+			if(rangeAlgType == FAST){
+				//max_disp = 2 * delta;
 			}
 		}
 	}
