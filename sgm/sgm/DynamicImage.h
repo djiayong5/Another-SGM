@@ -14,9 +14,24 @@
 using namespace cv;
 using namespace std;
 
-std::ofstream log_disp("img_disp.txt");
 
+#pragma once
+#include <queue>
+#include <fstream>
 
+#include <opencv2/imgproc/imgproc.hpp> 
+#include <opencv2/core/core.hpp>        
+#include <opencv2/opencv.hpp>
+
+#include "Timer.h"
+#include "Properties.h"
+#include "Utils.h"
+
+;
+using namespace cv;
+using namespace std;
+
+//It can be done faster by 2 passes for all directions, but .....
 class DynamicDirection{
 public:
 	DynamicDirection(const Mat& left, const Mat& right, const CostCalculator& costs,  const Size& size, const int& max_disp, const int& penalty1, const int& penalty2) 
@@ -63,10 +78,14 @@ protected:
 		const Point2i prev = prevPoint(p);
 
 		const uchar* l_iter_prev;
+		int prevFromDisp;
+
 		//todo prev not in mat?
-		if(isInside(prev)) 
+		if(isInside(prev)) {
 			l_iter_prev = l.ptr<uchar>(prev.y,prev.x);
-		
+			prevFromDisp = 0;//getFromDisp(prev);
+		}
+
 		uchar* l_iter = l.ptr<uchar>(p.y,p.x);
 
 		int fromDisp = getFromDisp(p);
@@ -76,19 +95,19 @@ protected:
 
 		int min = 255;
 		for(int i = fromDisp; i < toDisp; ++i){
-			min = std::min(min, get(l_iter_prev, prev, i));
+			min = std::min(min, get(l_iter_prev, prev, i, prevFromDisp));
 		}
 
 		for(int d = fromDisp; d < toDisp; ++d){ //todo maybe here should be prev fromDisp and toDisp
 			int curr = curr_iter[d]; 
-			int a = get(l_iter_prev, prev,d);
-			int b = get(l_iter_prev, prev,d - 1);
-			int c = get(l_iter_prev, prev,d + 1);
-			l_iter[d] = getBestValue(a,b,c,curr, min); 
+			int a = get(l_iter_prev, prev, d, prevFromDisp);
+			int b = get(l_iter_prev, prev, d - 1, prevFromDisp);
+			int c = get(l_iter_prev, prev, d + 1, prevFromDisp);
+			l_iter[d - fromDisp] = getBestValue(a,b,c,curr, min); 
 		}
 	}
 
-	ushort getBestValue(int a, int b, int c, int curr, int min){
+	uchar getBestValue(int a, int b, int c, int curr, int min){
 		int bestValue = a;
 		bestValue = std::min(bestValue, min + penalty2);
 		bestValue = std::min(bestValue, b + penalty1);
@@ -122,15 +141,12 @@ protected:
 		return !isInside(prevPoint(p));
 	}
 
-	int get(const uchar* l_iter, const Point2i& p, const int& d){
+	int get(const uchar* l_iter, const Point2i& p, const int& d, const int& fromDisp){
 		if(!isInside(p)){
 			return 255;
 		}
 
-		if(d < 0 ||  d >= max_disp){
-			return 255;
-		}
-		return l_iter[d];
+		return l_iter[d - fromDisp];
 	}
 
 	MatND l;
@@ -147,17 +163,15 @@ protected:
 
 class DynamicImage {
 public:
-	DynamicImage(const int max_disp) : max_disp(max_disp){
+	DynamicImage(const int maxDispRange) : maxDispRange(maxDispRange){
 
 	}
-	//calculate disparity map via sgm
-	// a,b - costs
 	Mat calculateDisparity(const Size& size, DynamicDirection& dd){
 		Mat s(size, CV_16U);
 		int sizes[3];
 		sizes[0] = size.height;
 		sizes[1] = size.width;
-		sizes[2] = max_disp;
+		sizes[2] = maxDispRange;
 		MatND sum(3, sizes, CV_16U, Scalar(0));
 		for(int i = 0; i < DIRS; ++i){
 			MatND l = dd.calculateL(Point2i(r_x[i], r_y[i]));
@@ -172,7 +186,7 @@ public:
 					int toDisp = getToDisp(y,x);
 
 					for(int d = fromDisp; d < toDisp; ++d){
-						sum_iter[d] += l_iter[d];
+						sum_iter[d - fromDisp] += l_iter[d - fromDisp];
 					}
 				}
 			}
@@ -188,8 +202,8 @@ public:
 				int toDisp = getToDisp(y,x);
 				ushort* sum_iter = sum.ptr<ushort>(y,x);
 				for(int d = fromDisp; d < toDisp; ++d){
-					if(min > sum_iter[d]){
-						min = sum_iter[d];
+					if(min > sum_iter[d - fromDisp]){
+						min = sum_iter[d - fromDisp];
 						minD = d;
 					}
 				}
@@ -200,8 +214,7 @@ public:
 		return s;
 	}
 protected:
-	const int max_disp;
-
+	const int maxDispRange;
 	virtual int getFromDisp(const int& y, const int& x) const {
 		return 0;
 	}

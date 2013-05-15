@@ -122,6 +122,8 @@ protected:
 	MatND costs;
 };
 
+
+//yes, it's fucking shit
 namespace Temp {
 	Mat temp;
 }

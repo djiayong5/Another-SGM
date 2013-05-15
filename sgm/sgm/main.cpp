@@ -30,7 +30,7 @@ void test(int type){
 							70, 70, 70, 
 							100, 150, 250, 
 							300, 350, 150};
-	for(int i = 0; i < 6; ++i){
+	for(int i = 9; i < 10; ++i){
 		const string file = files[i] + "\\";
 		const Mat left = imread(path + file + "imL.png", 0);
 		const Mat right = imread(path + file + "imR.png", 0);

@@ -13,4 +13,4 @@ const int delta = 10;
 #define FAST 1
 #define QUALITY 0 
 
-const int rangeAlgType = QUALITY;
+const int rangeAlgType = FAST;
