@@ -29,4 +29,21 @@ protected:
 	const Mat maxDisp;
 };
 
+class DynamicImageWithRange : public DynamicImage {
+public:
+	DynamicImageWithRange(const int& max_disp, const Mat& minDisp, const Mat& maxDisp) 
+		: DynamicImage(max_disp) , minDisp(minDisp), maxDisp(maxDisp){ 
+	}
+protected:
+	virtual int getFromDisp(const int& y, const int& x) const {
+		return *minDisp.ptr<ushort>(y, x);
+	}
+	virtual int getToDisp(const int& y, const int& x) const {
+		return *maxDisp.ptr<ushort>(y, x);
+	}
+
+	const Mat minDisp;
+	const Mat maxDisp;
+};
+
 

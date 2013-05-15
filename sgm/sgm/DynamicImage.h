@@ -23,6 +23,7 @@ public:
 		: costs(costs), left(left), right(right), penalty1(penalty1), penalty2(penalty2), size(size), max_disp(max_disp) {}
 
 	virtual MatND calculateL(const Point2i& direction){
+		timer.start("Dynamic direction calculating");
 		this->direction = direction;
 		int sizes[3];
 		sizes[0] = size.height;
@@ -40,45 +41,14 @@ public:
 				}
 			}
 		}
+		timer.finish();
 
-		timer.start("Dynamic direction calculating");
+		timer.start("Phase2");
+
 		while(!queue.empty()){
-			Point2i p = queue.front();
+			const Point2i p = queue.front();
 			queue.pop();
-			const Point2i prev = prevPoint(p);
-			
-			const uchar* l_iter_prev;
-			if(isInside(prev)) 
-				l_iter_prev = l.ptr<uchar>(prev.y,prev.x);
-			const uchar* curr_iter = costs.getCosts(p.y, p.x);
-			//const uchar* curr_iter = costs.ptr(p.y, p.x);
-			uchar* l_iter = l.ptr<uchar>(p.y,p.x);
-
-			int fromDisp = getFromDisp(p);
-			int toDisp = getToDisp(p);
-
-			int min = 255;
-			for(int i = fromDisp; i < toDisp; ++i){
-				min = std::min(min, get(l_iter_prev, prev, i));
-			}
-
-			for(int d = fromDisp; d < toDisp; ++d){ //todo maybe here should be prev fromDisp and toDisp
-				int curr = curr_iter[d]; 
-				//int curr = costs.getCost(p.y, p.x,d); 
-
-				int a = get(l_iter_prev, prev,d);
-				int b = get(l_iter_prev, prev,d - 1);
-				int c = get(l_iter_prev, prev,d + 1);
-
-				int bestValue = a;
-				bestValue = std::min(bestValue, min + penalty2);
-				bestValue = std::min(bestValue, b + penalty1);
-				bestValue = std::min(bestValue, c + penalty1);
-				bestValue = curr + bestValue - min;
-				bestValue = std::min(bestValue, 255);
-				l_iter[d] = bestValue; 
-			}
-
+			handle(p);
 			const Point2i next = nextPoint(p);
 			if(isInside(next)){
 				queue.push(next);
@@ -87,23 +57,53 @@ public:
 		timer.finish();
 		return l;
 	}
-//44s
+
 protected:
+	void handle(const Point2i& p){
+		const Point2i prev = prevPoint(p);
+
+		const uchar* l_iter_prev;
+		//todo prev not in mat?
+		if(isInside(prev)) 
+			l_iter_prev = l.ptr<uchar>(prev.y,prev.x);
+		
+		uchar* l_iter = l.ptr<uchar>(p.y,p.x);
+
+		int fromDisp = getFromDisp(p);
+		int toDisp = getToDisp(p);
+
+		const uchar* curr_iter = costs.getCosts(p.y, p.x, fromDisp, toDisp);
+
+		int min = 255;
+		for(int i = fromDisp; i < toDisp; ++i){
+			min = std::min(min, get(l_iter_prev, prev, i));
+		}
+
+		for(int d = fromDisp; d < toDisp; ++d){ //todo maybe here should be prev fromDisp and toDisp
+			int curr = curr_iter[d]; 
+			int a = get(l_iter_prev, prev,d);
+			int b = get(l_iter_prev, prev,d - 1);
+			int c = get(l_iter_prev, prev,d + 1);
+			l_iter[d] = getBestValue(a,b,c,curr, min); 
+		}
+	}
+
+	ushort getBestValue(int a, int b, int c, int curr, int min){
+		int bestValue = a;
+		bestValue = std::min(bestValue, min + penalty2);
+		bestValue = std::min(bestValue, b + penalty1);
+		bestValue = std::min(bestValue, c + penalty1);
+		bestValue = curr + bestValue - min;
+		bestValue = std::min(bestValue, 255);
+		return bestValue;
+	}
+
 	virtual int getFromDisp(const Point2i& p){
 		return 0;
 	}
 	virtual int getToDisp(const Point2i& p){
 		return max_disp;
 	}
-
-	/*//unused now
-	int getPenalty2(Point2i prev, Point2i p){
-		if(!isInside(prev)){
-			return penalty2;
-		}
-		int diff = std::abs(*left.ptr(p.y, p.x) - *left.ptr(prev.y, prev.x));
-		return diff == 0 ? penalty2 : penalty2 / diff;
-	}*/
 
 	Point2i prevPoint(const Point2i& p){
 		return p - direction;
@@ -126,7 +126,7 @@ protected:
 		if(!isInside(p)){
 			return 255;
 		}
-		
+
 		if(d < 0 ||  d >= max_disp){
 			return 255;
 		}
@@ -147,10 +147,12 @@ protected:
 
 class DynamicImage {
 public:
+	DynamicImage(const int max_disp) : max_disp(max_disp){
 
+	}
 	//calculate disparity map via sgm
 	// a,b - costs
-	Mat calculateDisparity(const Size& size, const int max_disp, DynamicDirection& dd){
+	Mat calculateDisparity(const Size& size, DynamicDirection& dd){
 		Mat s(size, CV_16U);
 		int sizes[3];
 		sizes[0] = size.height;
@@ -159,25 +161,35 @@ public:
 		MatND sum(3, sizes, CV_16U, Scalar(0));
 		for(int i = 0; i < DIRS; ++i){
 			MatND l = dd.calculateL(Point2i(r_x[i], r_y[i]));
+			timer.start("Sum calculating");
+			//it's works O(W * H), but it depends on pixelwith disparity range less than 2 * delta
 			for(int y = 0; y < size.height; ++y){
 				for(int x = 0; x < size.width; ++x){
 					ushort* sum_iter = sum.ptr<ushort>(y,x);
 					const uchar* l_iter = l.ptr<uchar>(y,x);
-					for(int d = 0; d < max_disp; ++d){
+
+					int fromDisp = getFromDisp(y,x);
+					int toDisp = getToDisp(y,x);
+
+					for(int d = fromDisp; d < toDisp; ++d){
 						sum_iter[d] += l_iter[d];
 					}
 				}
 			}
+			timer.finish();
 		}
 
-		timer.start("Sum and best calculating");
+		timer.start("Best calculating");
 		for(int y = 0; y < size.height; ++y){
 			for(int x = 0; x < size.width; ++x){
 				int minD = -1;
 				int min = 10000;
-				for(int d = 0; d < max_disp; ++d){
-					if(min > *sum.ptr<ushort>(y,x,d)){
-						min = *sum.ptr<ushort>(y,x,d);
+				int fromDisp = getFromDisp(y,x);
+				int toDisp = getToDisp(y,x);
+				ushort* sum_iter = sum.ptr<ushort>(y,x);
+				for(int d = fromDisp; d < toDisp; ++d){
+					if(min > sum_iter[d]){
+						min = sum_iter[d];
 						minD = d;
 					}
 				}
@@ -186,5 +198,14 @@ public:
 		}
 		timer.finish();
 		return s;
+	}
+protected:
+	const int max_disp;
+
+	virtual int getFromDisp(const int& y, const int& x) const {
+		return 0;
+	}
+	virtual int getToDisp(const int& y, const int& x) const {
+		return max_disp;
 	}
 };

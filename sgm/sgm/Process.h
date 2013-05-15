@@ -36,24 +36,12 @@ Mat simpleProcess(const Mat& left, const Mat& right){
 
 	const Size size = left.size();
 
-	CostCalculator& costs = SimpleCostCalculator(right, left, block, max_disp, -1);
-	//CostCalculator& costs = RuntimeCostCalculator(right, left, block, max_disp, -1);
+	//CostCalculator& costs = SimpleCostCalculator(right, left, block, max_disp, -1);
+	CostCalculator& costs = RuntimeCostCalculator(right, left, block, max_disp, -1);
 	DynamicDirection dd(right, left, costs , size, max_disp, penalty1, penalty2);
-	
-	const Mat dispL = DynamicImage().calculateDisparity(size , max_disp, dd);
-	//const Mat dispR = DynamicImage().calculateDisparity(left, right, censusCostsRight, size, max_disp, penalty1, penalty2);
-
-	//stereoMedianBlur(dispL, dispR);
-
-	/*const Mat blured = dispL.clone();
-	medianBlur(dispL, blured, 3);
-	blured.copyTo(dispL, dispL < 15);
-	//blured.copyTo(dispL, dispL > 40);
-	stereoMedianBlur(dispL, dispR);
-	*/
+	const Mat dispL = DynamicImage(max_disp).calculateDisparity(size , dd);
 
 	Mat disp = dispL;
-	//disp = uniquenessConstraint(dispL, dispR);
 	imageProcessTimer.finish();
 	return disp;
 }
@@ -65,10 +53,13 @@ Mat processWithRange(const Mat& left, const Mat& right, Mat& minDisp, Mat& maxDi
 
 	const Size size = left.size();
 	
-	CostCalculator& costs = SimpleCostCalculator(right, left, block, max_disp, -1);
-	//CostCalculator& costs = RuntimeCostCalculator(right, left, block, max_disp, -1);
-	DynamicDirectionRange dd(right, left, costs, size, max_disp, penalty1, penalty2, minDisp, maxDisp);
-	const Mat dispL = DynamicImage().calculateDisparity(size, max_disp, dd);
+	//CostCalculator& costs = SimpleCostCalculator(right, left, block, max_disp, -1);
+	CostCalculator& costs = RuntimeCostCalculator(right, left, block, max_disp, -1);
+	
+	DynamicDirectionRange dd(right, left, costs, size, max_disp, penalty1, penalty2, minDisp, maxDisp); 
+	DynamicImageWithRange dynamicImageRange(max_disp, minDisp, maxDisp);
+	
+	const Mat dispL = dynamicImageRange.calculateDisparity(size, dd);
 	//stereoMedianBlur(dispL, dispR);
 	Mat disp = dispL;
 	imageProcessTimer.finish();
@@ -93,7 +84,7 @@ Mat processWithRange(const Mat& left, const Mat& right){
 	Mat realDisp(left.size(), CV_16U);
 	for(int y = 0; y < realDisp.size().height; ++y){
 		for(int x = 0; x < realDisp.size().width; ++x){
-			*realDisp.ptr<ushort>(y ,x ) = (*disp.ptr<short>(y,x + max_disp) / 16);
+			*realDisp.ptr<ushort>(y ,x) = (*disp.ptr<short>(y,x + max_disp) / 16);
 		}
 	}	
 
@@ -117,9 +108,10 @@ Mat processWithRange(const Mat& left, const Mat& right){
 			}
 		}
 	}
-	/*imshow("a", minDisp * 256);
-	imshow("b", maxDisp * 256);
-	waitKey();
+	//imwrite("X:\\Dropbox\\SGM\\dataset\\test\\disps\\f.png", realDisp * 256 * 16);
+	/*
+	imwrite("X:\\Dropbox\\SGM\\dataset\\test\\disps\\a.png", minDisp * 256);
+	imwrite("X:\\Dropbox\\SGM\\dataset\\test\\disps\\b.png", maxDisp * 256);
 	*/
 	timer.finish();
 	return processWithRange(left,right, minDisp, maxDisp);

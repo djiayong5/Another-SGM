@@ -16,9 +16,12 @@ public:
 		this->censusRight = calculateCensus(right, block);
 	}
 
-	virtual uchar getCost(int& y, int& x, int& d) const = 0;
-	virtual const uchar* getCosts(int& y, int& x) const = 0;
+	virtual uchar getCost( const int& y, const int& x, const int& d) const = 0;
+	virtual const uchar* getCosts( const int& y, const int& x) const = 0;
 
+	virtual const uchar* getCosts(const int& y, const int& x, const int& fromDisp, const int& toDisp) const {
+		return getCosts(y,x);
+	}
 protected:
 	Mat censusLeft;
 	Mat censusRight;
@@ -81,14 +84,15 @@ public:
 		calculateCensusCost(censusLeft, censusRight, max_disp, k);	
 	}
 
-	virtual uchar getCost(int& y, int& x, int& d) const {
+	virtual uchar getCost(const int& y, const int& x, const int& d) const {
 		return *costs.ptr<uchar>(y,x,d);		
 	}
 
-	virtual const uchar* getCosts(int& y, int& x) const {
+	virtual const uchar* getCosts(const int& y, const int& x) const {
 		return costs.ptr<uchar>(y,x);
 	}
 
+	
 protected:
 	//use k = +- 1 for (left to right) cost or (right to left) cost
 	void calculateCensusCost(const Mat& censusLeft, const Mat& censusRight, const int max_disp, const int k){
@@ -129,19 +133,23 @@ public:
 		Temp::temp = Mat(max_disp, 1, CV_8U);
 	}
 
-	virtual uchar getCost(int& y, int& x, int& d) const {
+	virtual uchar getCost(const int& y,const int& x,const int& d) const {
 		if(x + k * d < 0 || x + k * d >= width){
 			return 255;
 		}
 		return hammingDistance(*censusLeft.ptr<uint64_t>(y,x + k * d), *censusRight.ptr<uint64_t>(y, x));		
 	}
 
-	virtual const uchar* getCosts(int& y, int& x) const  {
+	virtual const uchar* getCosts(const int& y, const int& x) const {
+		return getCosts(y,x, 0, max_disp);
+		
+	}
 
+	virtual const uchar* getCosts(const int& y, const int& x, const int& fromDisp, const int& toDisp) const {
 		const uint64_t cr = *censusRight.ptr<uint64_t>(y, x);
 		const uint64_t* left_iter = censusLeft.ptr<uint64_t>(y); 
 		uchar* ret_iter = Temp::temp.ptr<uchar>(0);
-		for(int d = 0; d < max_disp; ++d){
+		for(int d = fromDisp; d < toDisp; ++d){
 			if(x + k * d < 0 || x + k * d >= width){
 				ret_iter[d] = 255;
 			} else {
@@ -150,9 +158,7 @@ public:
 		}
 		return ret_iter;
 	}
-
 	int width;
 	const int k;
 	const int max_disp;
-
 };
