@@ -1,0 +1,156 @@
+\begin{thebibliography}{10}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+\ifx\undefined\url\def\url#1{{\small #1}}\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
+\ifx\undefined\BibAnnote\long\def\BibAnnote#1{}\else\fi
+\ifx\undefined\BibEmph\def\BibEmph#1{\emph{#1}}\else\fi
+
+\bibitem{UMLBOOK}
+\selectlanguageifdefined{russian}
+\BibEmph{Буч~Г., Джекобсон~А., Рамбо~Д.} UML. Руководство пользователя.
+\newblock М.: ДМК Пресс, 2004.
+
+\bibitem{UMLBOOK2}
+\selectlanguageifdefined{russian}
+\BibEmph{Буч~Г., Якобсон~А., Рамбо~Д.} UML.
+\newblock СПб.: Питер, 2006.
+
+\bibitem{GAMMA}
+\selectlanguageifdefined{russian}
+\BibEmph{Гамма~Э., Хелм~Р., Джонсон~Р., Влассидес~Д.} Приемы
+  объектно-ориентированного проектирования. Паттерны проектирования.
+\newblock СПб.: Питер, 2001.
+
+\bibitem{Mavrin06ComponentLifecycles}
+\selectlanguageifdefined{english}
+\BibEmph{Маврин~П., Корнеев~Г., Станкевич~А., Шалыто~А.} Моделирование
+  жизненного цикла компоненты программного комплекса с использованием диаграмм
+  состояний. \BibUrl{ http://is.ifmo.ru/works/\_taiga.pdf}.
+
+\bibitem{SECR2006Mavrin}
+\selectlanguageifdefined{english}
+\BibEmph{Маврин~П., Корнеев~Г., Шалыто~А.} Формальная семантика диаграмм
+  состояний, удобная для практического применения~// \BibEmph{Software
+  Engineering Conference (Russia)}.
+\newblock 2006.
+\newblock Pp.~43--46. \BibUrl{ http://is.ifmo.ru/works/\_semantics.pdf}.
+
+\bibitem{is.ifmo.ru}
+\selectlanguageifdefined{english}
+Сайт, посвященный автоматному программированию. \BibUrl{ http://is.ifmo.ru/}.
+
+\bibitem{FAULER}
+\selectlanguageifdefined{english}
+\BibEmph{Фаулер~М., Скотт~К.} UML. Основы. Краткое руководство по
+  унифицированному языку моделирования.
+\newblock М.: Символ-Плюс, 2002.
+
+\bibitem{SWITCH}
+\selectlanguageifdefined{english}
+\BibEmph{Шалыто~А.~А.} SWITCH-технология. Алгоритмизация и программирование
+  задач логического управления.
+\newblock СПб.: Наука, 1998. \BibUrl{ http://is.ifmo.ru/books/switch/1}.
+
+\bibitem{StateMachinePattern}
+\selectlanguageifdefined{russian}
+\BibEmph{Шамгунов~Н., Корнеев~Г., Шалыто~А.} State machine --- новый паттерн
+  объектно-ориентированного проектирования~//
+  \BibEmph{Информационно-управляющие системы}.
+\newblock 2004.
+\newblock {\cyr\textnumero}~5.
+\newblock {\cyr\CYRS.}~13--25. \BibUrl{ http://is.ifmo.ru/works/pattern.pdf}.
+
+\bibitem{ADAMCZYK}
+\selectlanguageifdefined{english}
+\BibEmph{Adamczyk~P.} The anthology of the finite state machine design
+  patterns. \BibUrl{ http://jerry.cs.uiuc.edu/\char126
+  plop/plop2003/Papers/Adamczyk-State-Machine.pdf}.
+
+\bibitem{CraneD05}
+\selectlanguageifdefined{english}
+\BibEmph{Crane~M.~L., Dingel~J.} Uml vs. classical vs. rhapsody statecharts:
+  Not all models are created equal.~// MoDELS.
+\newblock 2005.
+\newblock Pp.~97--112.
+
+\bibitem{EclipseSite}
+\selectlanguageifdefined{english}
+Eclipse. The open source community whose projects are focused on providing an
+  extensible development platform and application frameworks for building
+  software. \BibUrl{ http://www.eclipse.org/}.
+
+\bibitem{gosling05java}
+\selectlanguageifdefined{english}
+\BibEmph{Gosling~J., Joy~B., Steele~G., Bracha~G.} The {Java} Language
+  Specification, Third Edition.
+\newblock Boston, Mass.: Addison-Wesley, 2005. \BibUrl{
+  http://java.sun.com/docs/books/jls/download/langspec-3.0.pdf}.
+
+\bibitem{HarelKugler04}
+\selectlanguageifdefined{english}
+\BibEmph{Harel~D., Kugler~H.} {The RHAPSODY Semantics of Statecharts (or, On
+  the Executable Core of the UML)}~// Integration of Software Specification
+  Techniques for Application in Engineering.
+\newblock Vol.~3147 of \BibEmph{Lect. Notes in Comp. Sci.}
+\newblock Springer-Verlag, 2004.
+\newblock Pp.~325--354.
+
+\bibitem{harel90statemate}
+\selectlanguageifdefined{english}
+\BibEmph{Harel~D., Lachover~H., Naamad~A., Pnueli~A., Politi~M., Sherman~R.,
+  Shtull-Trauring~A., Trakhtenbrot~M.~B.} {STATEMATE}: A working environment
+  for the development of complex reactive systems~// \BibEmph{Software
+  Engineering}.
+\newblock 1990.
+\newblock Vol.~16, no.~4.
+\newblock Pp.~403--414. \BibUrl{ citeseer.ist.psu.edu/harel90statemate.html}.
+
+\bibitem{RhapsodySite}
+\selectlanguageifdefined{english}
+I-Logix Rhapsody: Model-Driven Development Software with UML 2.0. \BibUrl{
+  http://www.ilogix.com/rhapsody/rhapsody.cfm}.
+
+\bibitem{StatemateSite}
+\selectlanguageifdefined{english}
+I-Logix Statemate, Embedded Systems Design Software. \BibUrl{
+  http://www.ilogix.com/statemate/statemate.cfm}.
+
+\bibitem{AnnotationsTutorial}
+\selectlanguageifdefined{english}
+Java Tutorial: Annotations. \BibUrl{
+  http://java.sun.com/j2se/1.5.0/docs/guide/language/annotations.html}.
+
+\bibitem{GenericsTutorial}
+\selectlanguageifdefined{english}
+Java Tutorial: Generics. \BibUrl{
+  http://java.sun.com/j2se/1.5/pdf/generics-tutorial.pdf}.
+
+\bibitem{ReflectionTutorial}
+\selectlanguageifdefined{english}
+Java Tutorial: Reflection. \BibUrl{
+  http://java.sun.com/docs/books/tutorial/reflect/}.
+
+\bibitem{XUML}
+\selectlanguageifdefined{english}
+\BibEmph{Mellor~S.~J., Balcer~M.~J.} Executable UML.
+\newblock Addison-Wesley, 2004.
+
+\bibitem{SAMEK}
+\selectlanguageifdefined{english}
+\BibEmph{Samek~M.} Practical Statecharts in C/C++.
+\newblock CMP Books, 2002.
+
+\bibitem{UniModSite}
+\selectlanguageifdefined{english}
+UniMod. Инструмент, поддерживающий SWITCH-технологию. \BibUrl{
+  http://unimod.sourceforge.net/}.
+
+\bibitem{VisioToSwitchSite}
+\selectlanguageifdefined{english}
+Visio2Switch, конвертор для автоматической генерации С/С++ кода по автоматным
+  графам, нарисованных в Visio в соответствии с требованиями SWITCH-технологии.
+  \BibUrl{ http://is.ifmo.ru/progeny/visio2switch/}.
+
+\end{thebibliography}

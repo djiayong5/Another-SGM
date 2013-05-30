@@ -1,0 +1,2 @@
+pushd ..
+call r.bat
