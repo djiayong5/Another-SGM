@@ -1,0 +1,887 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{entry}{none}
+    \entry{mh-iff}{inproceedings}{}
+      \name{labelname}{3}{}{%
+        {{hash=269fe6d424c9b56092891e20ae3b03ed}{Knowles}{K\bibinitperiod}{J.\bibnamedelimi D.}{J\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{hash=ba5dedca72b414fbe9ffc53808b0656d}{Watson}{W\bibinitperiod}{R.\bibnamedelimi A.}{R\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+        {{hash=b92311316eb14ae708fd2a311d835ece}{Corne}{C\bibinitperiod}{D.}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=269fe6d424c9b56092891e20ae3b03ed}{Knowles}{K\bibinitperiod}{J.\bibnamedelimi D.}{J\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{hash=ba5dedca72b414fbe9ffc53808b0656d}{Watson}{W\bibinitperiod}{R.\bibnamedelimi A.}{R\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+        {{hash=b92311316eb14ae708fd2a311d835ece}{Corne}{C\bibinitperiod}{D.}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {London, UK}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{5c6a81c797f11949e2966b7546749198}
+      \strng{fullhash}{5c6a81c797f11949e2966b7546749198}
+      \field{sortinit}{0}
+      \field{labeltitle}{Reducing Local Optima in Single-Objective Problems by Multi-objectivization}
+      \field{booktitle}{Proceedings of the First International Conference on Evolutionary Multi-Criterion Optimization}
+      \field{hyphenation}{english}
+      \field{series}{EMO '01}
+      \field{title}{Reducing Local Optima in Single-Objective Problems by Multi-objectivization}
+      \field{year}{2001}
+      \field{pages}{269\bibrangedash 283}
+    \endentry
+    \entry{master}{thesis}{}
+      \name{labelname}{1}{}{%
+        {{hash=6928f38bb28e1f304c54a7168f971156}{Буздалов}{Б\bibinitperiod}{М.\bibnamedelimi В.}{М\bibinitperiod\bibinitdelim В\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=6928f38bb28e1f304c54a7168f971156}{Буздалов}{Б\bibinitperiod}{М.\bibnamedelimi В.}{М\bibinitperiod\bibinitdelim В\bibinitperiod}{}{}{}{}}%
+      }
+      \list{institution}{1}{%
+        {СПбГУ ИТМО}%
+      }
+      \strng{namehash}{6928f38bb28e1f304c54a7168f971156}
+      \strng{fullhash}{6928f38bb28e1f304c54a7168f971156}
+      \field{sortinit}{0}
+      \field{labeltitle}{{Генерация тестов для олимпиадных задач по теории графов с использованием эволюционных алгоритмов}}
+      \field{hyphenation}{russian}
+      \field{title}{{Генерация тестов для олимпиадных задач по теории графов с использованием эволюционных алгоритмов}}
+      \field{type}{mathesis}
+      \field{year}{2011}
+    \endentry
+    \entry{criteries}{book}{}
+      \name{labelname}{2}{}{%
+        {{hash=fb0387b2813562ba983c9ca9d5ed803f}{Лотов}{Л\bibinitperiod}{А.\bibnamedelimi В.}{А\bibinitperiod\bibinitdelim В\bibinitperiod}{}{}{}{}}%
+        {{hash=3e5a6062fc51f8618266179a9b019121}{Поспелова}{П\bibinitperiod}{И.\bibnamedelimi И.}{И\bibinitperiod\bibinitdelim И\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=fb0387b2813562ba983c9ca9d5ed803f}{Лотов}{Л\bibinitperiod}{А.\bibnamedelimi В.}{А\bibinitperiod\bibinitdelim В\bibinitperiod}{}{}{}{}}%
+        {{hash=3e5a6062fc51f8618266179a9b019121}{Поспелова}{П\bibinitperiod}{И.\bibnamedelimi И.}{И\bibinitperiod\bibinitdelim И\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {М.}%
+      }
+      \list{publisher}{1}{%
+        {МАКС Пресс}%
+      }
+      \strng{namehash}{21ad10a865f7fc4c94b9ef699a434461}
+      \strng{fullhash}{21ad10a865f7fc4c94b9ef699a434461}
+      \field{sortinit}{0}
+      \field{labeltitle}{{Многокритериальные задачи принятия решений: Учебное пособие}}
+      \field{hyphenation}{russian}
+      \field{title}{{Многокритериальные задачи принятия решений: Учебное пособие}}
+      \field{year}{2008}
+    \endentry
+    \entry{multicriteria}{book}{}
+      \name{labelname}{1}{}{%
+        {{hash=1480d704a1e3375ebb54053668eaf713}{Ehrgott}{E\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=1480d704a1e3375ebb54053668eaf713}{Ehrgott}{E\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{1480d704a1e3375ebb54053668eaf713}
+      \strng{fullhash}{1480d704a1e3375ebb54053668eaf713}
+      \field{sortinit}{0}
+      \field{labeltitle}{{M}ulticriteria {O}ptimization}
+      \field{hyphenation}{english}
+      \field{title}{{M}ulticriteria {O}ptimization}
+      \field{year}{2005}
+    \endentry
+    \entry{multievol}{book}{}
+      \name{labelname}{1}{}{%
+        {{hash=3b0426e9fc6ff3fc1eaf4286ab054d63}{Deb}{D\bibinitperiod}{K.}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=3b0426e9fc6ff3fc1eaf4286ab054d63}{Deb}{D\bibinitperiod}{K.}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{3b0426e9fc6ff3fc1eaf4286ab054d63}
+      \strng{fullhash}{3b0426e9fc6ff3fc1eaf4286ab054d63}
+      \field{sortinit}{0}
+      \field{labeltitle}{{M}ulti-objective {O}ptimization {U}sing {E}volutionary {A}lgorithms}
+      \field{hyphenation}{english}
+      \field{title}{{M}ulti-objective {O}ptimization {U}sing {E}volutionary {A}lgorithms}
+      \field{year}{2001}
+    \endentry
+    \entry{ref-point}{inproceedings}{}
+      \name{labelname}{5}{}{%
+        {{hash=1764be68a82c28a3331166da5a8e2a5e}{Azuma}{A\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=cefb16b4a6adf9695f6e51247d8dec31}{Shimada}{S\bibinitperiod}{T.}{T\bibinitperiod}{}{}{}{}}%
+        {{hash=39e72577d4bf5c2144d5cd529562ece2}{Takadama}{T\bibinitperiod}{K.}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=2b3f6013a44f8cae1e95e691e8cc0ec5}{Sato}{S\bibinitperiod}{H.}{H\bibinitperiod}{}{}{}{}}%
+        {{hash=41895169d81c1fdf4c712d614bef9162}{Hattori}{H\bibinitperiod}{K.}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{5}{}{%
+        {{hash=1764be68a82c28a3331166da5a8e2a5e}{Azuma}{A\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=cefb16b4a6adf9695f6e51247d8dec31}{Shimada}{S\bibinitperiod}{T.}{T\bibinitperiod}{}{}{}{}}%
+        {{hash=39e72577d4bf5c2144d5cd529562ece2}{Takadama}{T\bibinitperiod}{K.}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=2b3f6013a44f8cae1e95e691e8cc0ec5}{Sato}{S\bibinitperiod}{H.}{H\bibinitperiod}{}{}{}{}}%
+        {{hash=41895169d81c1fdf4c712d614bef9162}{Hattori}{H\bibinitperiod}{K.}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Honolulu, HI, USA}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Computer Society}%
+      }
+      \strng{namehash}{96cee79db21827bf8112e90e0a3241bb}
+      \strng{fullhash}{96cee79db21827bf8112e90e0a3241bb}
+      \field{sortinit}{0}
+      \field{labeltitle}{The Biased Multi-Objective Optimization using the Reference Point: Toward the industrial logistics network}
+      \field{booktitle}{Proceedings of the Tenth International Conference on Machine Learning and Applications, ICMLA 2011}
+      \field{hyphenation}{english}
+      \field{title}{The Biased Multi-Objective Optimization using the Reference Point: Toward the industrial logistics network}
+      \field{volume}{2}
+      \field{year}{2011}
+      \field{pages}{27\bibrangedash 30}
+    \endentry
+    \entry{nature-inspired}{book}{}
+      \name{labelname}{1}{}{%
+        {{hash=6c214adf3215d8aecb1a0c9fd46264c5}{Yang}{Y\bibinitperiod}{X.-S.}{X\bibinithyphendelim S\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=6c214adf3215d8aecb1a0c9fd46264c5}{Yang}{Y\bibinitperiod}{X.-S.}{X\bibinithyphendelim S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Luniver Press}%
+      }
+      \strng{namehash}{6c214adf3215d8aecb1a0c9fd46264c5}
+      \strng{fullhash}{6c214adf3215d8aecb1a0c9fd46264c5}
+      \field{sortinit}{0}
+      \field{labeltitle}{{Nature-Inspired Metaheuristic Algorithms}}
+      \field{hyphenation}{english}
+      \field{title}{{Nature-Inspired Metaheuristic Algorithms}}
+      \field{year}{2010}
+    \endentry
+    \entry{essentials}{online}{}
+      \name{labelname}{1}{}{%
+        {{hash=fc0da695d3774401949060e332fa8677}{Luke}{L\bibinitperiod}{Sean}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=fc0da695d3774401949060e332fa8677}{Luke}{L\bibinitperiod}{Sean}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{fc0da695d3774401949060e332fa8677}
+      \strng{fullhash}{fc0da695d3774401949060e332fa8677}
+      \field{sortinit}{0}
+      \field{labeltitle}{Essentials of Metaheuristics}
+      \field{hyphenation}{english}
+      \field{title}{Essentials of Metaheuristics}
+      \verb{url}
+      \verb http://cs.gmu.edu/~sean/book/metaheuristics/
+      \endverb
+    \endentry
+    \entry{mitchell-ga}{book}{}
+      \name{labelname}{1}{}{%
+        {{hash=2ecdfadb135a43010c56bbc6dcac3955}{Mitchell}{M\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=2ecdfadb135a43010c56bbc6dcac3955}{Mitchell}{M\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press. Cambridge. MA}%
+      }
+      \strng{namehash}{2ecdfadb135a43010c56bbc6dcac3955}
+      \strng{fullhash}{2ecdfadb135a43010c56bbc6dcac3955}
+      \field{sortinit}{0}
+      \field{labeltitle}{{An Introduction to Genetic Algorithms}}
+      \field{hyphenation}{english}
+      \field{title}{{An Introduction to Genetic Algorithms}}
+      \field{year}{1996}
+    \endentry
+    \entry{skobtsov}{book}{}
+      \name{labelname}{1}{}{%
+        {{hash=15f4ed2cfbf7c8a8ff26fe6b68b66dad}{Скобцов}{С\bibinitperiod}{Юрий\bibnamedelima Александрович}{Ю\bibinitperiod\bibinitdelim А\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=15f4ed2cfbf7c8a8ff26fe6b68b66dad}{Скобцов}{С\bibinitperiod}{Юрий\bibnamedelima Александрович}{Ю\bibinitperiod\bibinitdelim А\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Донецк}%
+      }
+      \list{publisher}{1}{%
+        {ДонНТУ}%
+      }
+      \strng{namehash}{15f4ed2cfbf7c8a8ff26fe6b68b66dad}
+      \strng{fullhash}{15f4ed2cfbf7c8a8ff26fe6b68b66dad}
+      \field{sortinit}{0}
+      \field{labeltitle}{{Основы эволюционных вычислений}}
+      \field{hyphenation}{russian}
+      \field{title}{{Основы эволюционных вычислений}}
+      \field{year}{2008}
+    \endentry
+    \entry{alpaydin}{book}{}
+      \name{labelname}{1}{}{%
+        {{hash=12dcab69052b8093ecbde8bb4ef4573e}{Alpaydin}{A\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=12dcab69052b8093ecbde8bb4ef4573e}{Alpaydin}{A\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{12dcab69052b8093ecbde8bb4ef4573e}
+      \strng{fullhash}{12dcab69052b8093ecbde8bb4ef4573e}
+      \field{sortinit}{0}
+      \field{labeltitle}{{Introduction to Machine Learning (Adaptive Computation and Machine Learning)}}
+      \field{hyphenation}{english}
+      \field{title}{{Introduction to Machine Learning (Adaptive Computation and Machine Learning)}}
+      \field{year}{2004}
+    \endentry
+    \entry{gosavi}{article}{}
+      \name{labelname}{1}{}{%
+        {{hash=ed1c86658ef06d4d5c4b7a401e513ace}{Gosavi}{G\bibinitperiod}{Abhijit}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=ed1c86658ef06d4d5c4b7a401e513ace}{Gosavi}{G\bibinitperiod}{Abhijit}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{ed1c86658ef06d4d5c4b7a401e513ace}
+      \strng{fullhash}{ed1c86658ef06d4d5c4b7a401e513ace}
+      \field{sortinit}{0}
+      \field{labeltitle}{Reinforcement Learning: A Tutorial Survey and Recent Advances}
+      \field{hyphenation}{english}
+      \field{journaltitle}{INFORMS Journal on Computing}
+      \field{number}{2}
+      \field{title}{Reinforcement Learning: A Tutorial Survey and Recent Advances}
+      \field{volume}{21}
+      \field{year}{2009}
+      \field{pages}{178\bibrangedash 192}
+    \endentry
+    \entry{sutton}{book}{}
+      \name{labelname}{2}{}{%
+        {{hash=94ad5f0176dfefdc8822938d6b774070}{Sutton}{S\bibinitperiod}{R.\bibnamedelimi S.}{R\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{hash=1ef8bc2762eca5039baf4db6e63fa65e}{Barto}{B\bibinitperiod}{A.\bibnamedelimi G.}{A\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=94ad5f0176dfefdc8822938d6b774070}{Sutton}{S\bibinitperiod}{R.\bibnamedelimi S.}{R\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{hash=1ef8bc2762eca5039baf4db6e63fa65e}{Barto}{B\bibinitperiod}{A.\bibnamedelimi G.}{A\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, MA, USA}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{e51d26aff972f517ded5463de11e5c70}
+      \strng{fullhash}{e51d26aff972f517ded5463de11e5c70}
+      \field{sortinit}{0}
+      \field{labeltitle}{{{R}einforcement {L}earning: {A}n {I}ntroduction}}
+      \field{hyphenation}{english}
+      \field{title}{{{R}einforcement {L}earning: {A}n {I}ntroduction}}
+      \field{year}{1998}
+    \endentry
+    \entry{survey}{article}{}
+      \name{labelname}{3}{}{%
+        {{hash=780646b9f1621308f878db166c26c24c}{Kaelbling}{K\bibinitperiod}{L.\bibnamedelimi P.}{L\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+        {{hash=5a9afbf5e1b1f9b311f10cae7c9060f8}{Littman}{L\bibinitperiod}{M.\bibnamedelimi L.}{M\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{hash=3aef73feba5921a4879d0d04905e5928}{Moore}{M\bibinitperiod}{A.\bibnamedelimi W.}{A\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=780646b9f1621308f878db166c26c24c}{Kaelbling}{K\bibinitperiod}{L.\bibnamedelimi P.}{L\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+        {{hash=5a9afbf5e1b1f9b311f10cae7c9060f8}{Littman}{L\bibinitperiod}{M.\bibnamedelimi L.}{M\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{hash=3aef73feba5921a4879d0d04905e5928}{Moore}{M\bibinitperiod}{A.\bibnamedelimi W.}{A\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{a8b92f78ce21a94161e07220a02bc92c}
+      \strng{fullhash}{a8b92f78ce21a94161e07220a02bc92c}
+      \field{sortinit}{0}
+      \field{labeltitle}{{R}einforcement {L}earning: {A} {S}urvey}
+      \field{hyphenation}{english}
+      \field{journaltitle}{Journal of Artificial Intelligence Research}
+      \field{title}{{R}einforcement {L}earning: {A} {S}urvey}
+      \field{volume}{4}
+      \field{year}{1996}
+      \field{pages}{237\bibrangedash 285}
+    \endentry
+    \entry{adjusting}{incollection}{}
+      \name{labelname}{4}{}{%
+        {{hash=fd894b75118ec3c7a8d3876034dfcad0}{Eiben}{E\bibinitperiod}{A.\bibnamedelimi E.}{A\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{hash=4a8cba6efa3afc65630aa05f0cbd9b66}{Michalewicz}{M\bibinitperiod}{Zbigniew}{Z\bibinitperiod}{}{}{}{}}%
+        {{hash=8db29f6587badffb4797659c16105f20}{Schoenauer}{S\bibinitperiod}{Marc}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=23a1d76ec3ee06389155749988fc8cd4}{Smith}{S\bibinitperiod}{J.\bibnamedelimi E.}{J\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{hash=fd894b75118ec3c7a8d3876034dfcad0}{Eiben}{E\bibinitperiod}{A.\bibnamedelimi E.}{A\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{hash=4a8cba6efa3afc65630aa05f0cbd9b66}{Michalewicz}{M\bibinitperiod}{Zbigniew}{Z\bibinitperiod}{}{}{}{}}%
+        {{hash=8db29f6587badffb4797659c16105f20}{Schoenauer}{S\bibinitperiod}{Marc}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=23a1d76ec3ee06389155749988fc8cd4}{Smith}{S\bibinitperiod}{J.\bibnamedelimi E.}{J\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{37b77b6b2555a5396ef8afad117bc435}
+      \strng{fullhash}{37b77b6b2555a5396ef8afad117bc435}
+      \field{sortinit}{0}
+      \field{labeltitle}{Parameter Control in Evolutionary Algorithms}
+      \field{booktitle}{Parameter Setting in Evolutionary Algorithms}
+      \field{hyphenation}{english}
+      \field{title}{Parameter Control in Evolutionary Algorithms}
+      \field{year}{2007}
+      \field{pages}{19\bibrangedash 46}
+    \endentry
+    \entry{fuzzy}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=9f81f46436ba77791311a5db20ff5c25}{Herrera}{H\bibinitperiod}{Francisco}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=277f0ff0fa87b54f650fdac32a1b4c5a}{Lozano}{L\bibinitperiod}{Manuel}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=9f81f46436ba77791311a5db20ff5c25}{Herrera}{H\bibinitperiod}{Francisco}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=277f0ff0fa87b54f650fdac32a1b4c5a}{Lozano}{L\bibinitperiod}{Manuel}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Physica-Verlag}%
+      }
+      \strng{namehash}{627ce8c2bc1d9a7b8ee249f9cafa5faa}
+      \strng{fullhash}{627ce8c2bc1d9a7b8ee249f9cafa5faa}
+      \field{sortinit}{0}
+      \field{labeltitle}{{Adaptation of Genetic Algorithm Parameters Based on Fuzzy Logic Controllers}}
+      \field{hyphenation}{english}
+      \field{journaltitle}{Genetic Algorithms and Soft Computing}
+      \field{title}{{Adaptation of Genetic Algorithm Parameters Based on Fuzzy Logic Controllers}}
+      \field{year}{1996}
+      \field{pages}{95\bibrangedash 125}
+    \endentry
+    \entry{filtered-ff}{inproceedings}{}
+      \name{labelname}{3}{}{%
+        {{hash=bcfffe60c51e8deaada9d7c5c67da013}{Sakanashi}{S\bibinitperiod}{H.}{H\bibinitperiod}{}{}{}{}}%
+        {{hash=5fb568258fa748db33a4b2459f828aae}{Suzuki}{S\bibinitperiod}{K.}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=7930fc6f0758a5aae68c386b2ace38a9}{Kakazu}{K\bibinitperiod}{Y.}{Y\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=bcfffe60c51e8deaada9d7c5c67da013}{Sakanashi}{S\bibinitperiod}{H.}{H\bibinitperiod}{}{}{}{}}%
+        {{hash=5fb568258fa748db33a4b2459f828aae}{Suzuki}{S\bibinitperiod}{K.}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=7930fc6f0758a5aae68c386b2ace38a9}{Kakazu}{K\bibinitperiod}{Y.}{Y\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{29086c8679ecca26623ac290b2e47fe1}
+      \strng{fullhash}{29086c8679ecca26623ac290b2e47fe1}
+      \field{sortinit}{0}
+      \field{labeltitle}{{Controlling dynamics of GA through filtered evaluation function}}
+      \field{booktitle}{Y. Davidor, H. P. Schwefel, R. Maenner, Eds., Parallel Problem Solving from Nature-PPSN II, International Conf. on Evolutionary Computation}
+      \field{hyphenation}{english}
+      \field{title}{{Controlling dynamics of GA through filtered evaluation function}}
+      \field{year}{1994}
+      \field{pages}{239\bibrangedash 248}
+    \endentry
+    \entry{es-rl}{inproceedings}{}
+      \name{labelname}{3}{}{%
+        {{hash=138cf7782356e91f255b87a48e1164fd}{Müller}{M\bibinitperiod}{S.}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=535962407250717ab00c0ea1d59485b5}{Schraudolph}{S\bibinitperiod}{N.\bibnamedelimi N.}{N\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+        {{hash=fc39c4661acde51131de75f720b45023}{Koumoutsakos}{K\bibinitperiod}{P.\bibnamedelimi D.}{P\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=138cf7782356e91f255b87a48e1164fd}{Müller}{M\bibinitperiod}{S.}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=535962407250717ab00c0ea1d59485b5}{Schraudolph}{S\bibinitperiod}{N.\bibnamedelimi N.}{N\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+        {{hash=fc39c4661acde51131de75f720b45023}{Koumoutsakos}{K\bibinitperiod}{P.\bibnamedelimi D.}{P\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{53b3efc7615f9336bc80570b6f04aecc}
+      \strng{fullhash}{53b3efc7615f9336bc80570b6f04aecc}
+      \field{sortinit}{0}
+      \field{labeltitle}{Step Size Adaptation in Evolution Strategies using Reinforcement Learning}
+      \field{booktitle}{Proceedings of the Congress on Evolutionary Computation}
+      \field{hyphenation}{english}
+      \field{title}{Step Size Adaptation in Evolution Strategies using Reinforcement Learning}
+      \field{year}{2002}
+      \field{pages}{151\bibrangedash 156}
+    \endentry
+    \entry{ea-rl}{inproceedings}{}
+      \name{labelname}{4}{}{%
+        {{hash=fd894b75118ec3c7a8d3876034dfcad0}{Eiben}{E\bibinitperiod}{A.\bibnamedelimi E.}{A\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{hash=6b32d305e814a9d417398b2cfb80add0}{Horvath}{H\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=8b2ec4b791911aa35c7ef106201fd9db}{Kowalczyk}{K\bibinitperiod}{W.}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=29a296c46f00e3356060213a3b239b3c}{Schut}{S\bibinitperiod}{M.\bibnamedelimi C.}{M\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{hash=fd894b75118ec3c7a8d3876034dfcad0}{Eiben}{E\bibinitperiod}{A.\bibnamedelimi E.}{A\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+        {{hash=6b32d305e814a9d417398b2cfb80add0}{Horvath}{H\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=8b2ec4b791911aa35c7ef106201fd9db}{Kowalczyk}{K\bibinitperiod}{W.}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=29a296c46f00e3356060213a3b239b3c}{Schut}{S\bibinitperiod}{M.\bibnamedelimi C.}{M\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag, Berlin, Heidelberg}%
+      }
+      \strng{namehash}{8ac24648131945e6691d65452df4605f}
+      \strng{fullhash}{8ac24648131945e6691d65452df4605f}
+      \field{sortinit}{0}
+      \field{labeltitle}{Reinforcement learning for online control of evolutionary algorithms}
+      \field{booktitle}{Proceedings of the 4th international conference on Engineering self-organising systems ESOA'06}
+      \field{hyphenation}{english}
+      \field{title}{Reinforcement learning for online control of evolutionary algorithms}
+      \field{year}{2006}
+      \field{pages}{151\bibrangedash 160}
+    \endentry
+    \entry{h-iff}{misc}{}
+      \name{labelname}{2}{}{%
+        {{hash=ba5dedca72b414fbe9ffc53808b0656d}{Watson}{W\bibinitperiod}{R.\bibnamedelimi A.}{R\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+        {{hash=e3529e4f313a79321ecb1e1275cab20d}{Pollack}{P\bibinitperiod}{J.\bibnamedelimi B.}{J\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=ba5dedca72b414fbe9ffc53808b0656d}{Watson}{W\bibinitperiod}{R.\bibnamedelimi A.}{R\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+        {{hash=e3529e4f313a79321ecb1e1275cab20d}{Pollack}{P\bibinitperiod}{J.\bibnamedelimi B.}{J\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{6bab9d0b76ae31f36b183d57d51bd641}
+      \strng{fullhash}{6bab9d0b76ae31f36b183d57d51bd641}
+      \field{sortinit}{0}
+      \field{labeltitle}{Analysis of recombinative algorithms on a hierarchical building-block problem. In Foundations of Genetic Algorithms (FOGA)}
+      \field{hyphenation}{english}
+      \field{title}{Analysis of recombinative algorithms on a hierarchical building-block problem. In Foundations of Genetic Algorithms (FOGA)}
+      \field{year}{2000}
+    \endentry
+    \entry{pesa}{inproceedings}{}
+      \name{labelname}{2}{}{%
+        {{hash=74c65ed896b18598dbc8d69e0f3e9250}{Corne}{C\bibinitperiod}{D.\bibnamedelimi W.}{D\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{hash=269fe6d424c9b56092891e20ae3b03ed}{Knowles}{K\bibinitperiod}{J.\bibnamedelimi D.}{J\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=74c65ed896b18598dbc8d69e0f3e9250}{Corne}{C\bibinitperiod}{D.\bibnamedelimi W.}{D\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{hash=269fe6d424c9b56092891e20ae3b03ed}{Knowles}{K\bibinitperiod}{J.\bibnamedelimi D.}{J\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Berlin}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{526df2b0cfc6c9bf73e6c90ee67f7b43}
+      \strng{fullhash}{526df2b0cfc6c9bf73e6c90ee67f7b43}
+      \field{sortinit}{0}
+      \field{labeltitle}{{The Pareto-envelope based selection algorithm for multiobjective optimization}}
+      \field{booktitle}{the Sixth International Conference on Parallel Problem Solving from Nature (PPSN VI)}
+      \field{hyphenation}{english}
+      \field{title}{{The Pareto-envelope based selection algorithm for multiobjective optimization}}
+      \field{year}{2000}
+      \field{pages}{839\bibrangedash 848}
+    \endentry
+    \entry{pesa-ii}{inproceedings}{}
+      \name{labelname}{5}{}{%
+        {{hash=73fd752386bc680863ccb56fb9e8388e}{Corne}{C\bibinitperiod}{David\bibnamedelima W.}{D\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{hash=0b06c7e5d6f0e254286dc252aa084bf9}{Jerram}{J\bibinitperiod}{Nick\bibnamedelima R.}{N\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{hash=7c9cec359a321e10fe13babe75a70a36}{Knowles}{K\bibinitperiod}{Joshua\bibnamedelima D.}{J\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{hash=fe199a4a200cbf9391d5bf7e85b1289f}{Oates}{O\bibinitperiod}{Martin\bibnamedelima J.}{M\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{hash=3988b541736798fd8cf159be6cddc26e}{J}{J\bibinitperiod}{Martin}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{5}{}{%
+        {{hash=73fd752386bc680863ccb56fb9e8388e}{Corne}{C\bibinitperiod}{David\bibnamedelima W.}{D\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{hash=0b06c7e5d6f0e254286dc252aa084bf9}{Jerram}{J\bibinitperiod}{Nick\bibnamedelima R.}{N\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{hash=7c9cec359a321e10fe13babe75a70a36}{Knowles}{K\bibinitperiod}{Joshua\bibnamedelima D.}{J\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{hash=fe199a4a200cbf9391d5bf7e85b1289f}{Oates}{O\bibinitperiod}{Martin\bibnamedelima J.}{M\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{hash=3988b541736798fd8cf159be6cddc26e}{J}{J\bibinitperiod}{Martin}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Morgan Kaufmann Publishers}%
+      }
+      \strng{namehash}{c3d7f9784755c83e5f0c768a1cec78de}
+      \strng{fullhash}{c3d7f9784755c83e5f0c768a1cec78de}
+      \field{sortinit}{0}
+      \field{labeltitle}{PESA-II: Region-based Selection in Evolutionary Multiobjective Optimization}
+      \field{booktitle}{Proceedings of the Genetic and Evolutionary Computation Conference (GECCO’2001)}
+      \field{hyphenation}{english}
+      \field{title}{PESA-II: Region-based Selection in Evolutionary Multiobjective Optimization}
+      \field{year}{2001}
+      \field{pages}{283\bibrangedash 290}
+    \endentry
+    \entry{coello}{book}{}
+      \name{labelname}{3}{}{%
+        {{hash=035ee3fbc05958ea60bb07d8c6257abe}{Coello}{C\bibinitperiod}{C.A.C.}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=7e0004a2598b5654a0504fd655c884f1}{Lamont}{L\bibinitperiod}{G.B.}{G\bibinitperiod}{}{}{}{}}%
+        {{hash=f8ecdbd3eb288c5339fb5f6860e00b71}{Veldhuisen}{V\bibinitperiod}{D.A.\bibnamedelimi Van}{D\bibinitperiod\bibinitdelim V\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=035ee3fbc05958ea60bb07d8c6257abe}{Coello}{C\bibinitperiod}{C.A.C.}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=7e0004a2598b5654a0504fd655c884f1}{Lamont}{L\bibinitperiod}{G.B.}{G\bibinitperiod}{}{}{}{}}%
+        {{hash=f8ecdbd3eb288c5339fb5f6860e00b71}{Veldhuisen}{V\bibinitperiod}{D.A.\bibnamedelimi Van}{D\bibinitperiod\bibinitdelim V\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{bd40c34447a60cb10ce8eb8e16d551d3}
+      \strng{fullhash}{bd40c34447a60cb10ce8eb8e16d551d3}
+      \field{sortinit}{0}
+      \field{labeltitle}{Evolutionary Algorithms for Solving Multi-Objective Problems}
+      \field{hyphenation}{english}
+      \field{series}{Genetic and Evolutionary Computation Series}
+      \field{title}{Evolutionary Algorithms for Solving Multi-Objective Problems}
+      \field{year}{2007}
+    \endentry
+    \entry{optimize}{book}{}
+      \name{labelname}{3}{}{%
+        {{hash=62de48b5b78154b7381a3d40636db5da}{Гилл}{Г\bibinitperiod}{Ф.}{Ф\bibinitperiod}{}{}{}{}}%
+        {{hash=f257734da77153326b9ab1079a81c63f}{Мюррей}{М\bibinitperiod}{У.}{У\bibinitperiod}{}{}{}{}}%
+        {{hash=0b021a3aa1a67eb9589e6e3c660a43fc}{Райт}{Р\bibinitperiod}{М.}{М\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=62de48b5b78154b7381a3d40636db5da}{Гилл}{Г\bibinitperiod}{Ф.}{Ф\bibinitperiod}{}{}{}{}}%
+        {{hash=f257734da77153326b9ab1079a81c63f}{Мюррей}{М\bibinitperiod}{У.}{У\bibinitperiod}{}{}{}{}}%
+        {{hash=0b021a3aa1a67eb9589e6e3c660a43fc}{Райт}{Р\bibinitperiod}{М.}{М\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {М.}%
+      }
+      \list{publisher}{1}{%
+        {Мир}%
+      }
+      \strng{namehash}{167b166c9c0b24a5d42f58df08d56997}
+      \strng{fullhash}{167b166c9c0b24a5d42f58df08d56997}
+      \field{sortinit}{0}
+      \field{labeltitle}{{Практическая оптимизация}}
+      \field{hyphenation}{russian}
+      \field{title}{{Практическая оптимизация}}
+      \field{year}{1985}
+    \endentry
+    \entry{mitchell-ml}{book}{}
+      \name{labelname}{1}{}{%
+        {{hash=e90adde5c9b6827c07a2a8db9316e5d8}{Mitchell}{M\bibinitperiod}{T.\bibnamedelimi M.}{T\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=e90adde5c9b6827c07a2a8db9316e5d8}{Mitchell}{M\bibinitperiod}{T.\bibnamedelimi M.}{T\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {McGraw Hill}%
+      }
+      \strng{namehash}{e90adde5c9b6827c07a2a8db9316e5d8}
+      \strng{fullhash}{e90adde5c9b6827c07a2a8db9316e5d8}
+      \field{sortinit}{0}
+      \field{labeltitle}{{Machine Learning}}
+      \field{hyphenation}{english}
+      \field{title}{{Machine Learning}}
+      \field{year}{1997}
+    \endentry
+    \entry{incremental}{article}{}
+      \name{labelname}{4}{}{%
+        {{hash=52cccf8ea2b7be1caf5bfbf4ba258221}{Polikar}{P\bibinitperiod}{R.}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=760a6c4b58d846e54b23971f02c91a5e}{Udpa}{U\bibinitperiod}{L.}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=b2a920a48449f04a65a2c552d54543a3}{Udpa}{U\bibinitperiod}{S.\bibnamedelimi S.}{S\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{hash=c31bbc1715235e18a6b2a07374c498af}{Honavar}{H\bibinitperiod}{V.}{V\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{hash=52cccf8ea2b7be1caf5bfbf4ba258221}{Polikar}{P\bibinitperiod}{R.}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=760a6c4b58d846e54b23971f02c91a5e}{Udpa}{U\bibinitperiod}{L.}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=b2a920a48449f04a65a2c552d54543a3}{Udpa}{U\bibinitperiod}{S.\bibnamedelimi S.}{S\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{hash=c31bbc1715235e18a6b2a07374c498af}{Honavar}{H\bibinitperiod}{V.}{V\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Transactions on System, Man and Cybernetics (C), Special Issue on Knowledge Management}%
+      }
+      \strng{namehash}{31b1e7de669f22a2935ecec9174c67a0}
+      \strng{fullhash}{31b1e7de669f22a2935ecec9174c67a0}
+      \field{sortinit}{0}
+      \field{labeltitle}{{Learn++: An Incremental Learning Algorithm for Supervised Neural Networks}}
+      \field{hyphenation}{english}
+      \field{title}{{Learn++: An Incremental Learning Algorithm for Supervised Neural Networks}}
+      \field{year}{2001}
+    \endentry
+    \entry{systems}{book}{}
+      \name{labelname}{2}{}{%
+        {{hash=18080f8d8efa2f3a8a2491c2fc1f6de2}{Николенко}{Н\bibinitperiod}{С.\bibnamedelimi И.}{С\bibinitperiod\bibinitdelim И\bibinitperiod}{}{}{}{}}%
+        {{hash=af01f6a423a466b823a2d5d2b5dc692a}{Тулупьев}{Т\bibinitperiod}{А.\bibnamedelimi Л.}{А\bibinitperiod\bibinitdelim Л\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=18080f8d8efa2f3a8a2491c2fc1f6de2}{Николенко}{Н\bibinitperiod}{С.\bibnamedelimi И.}{С\bibinitperiod\bibinitdelim И\bibinitperiod}{}{}{}{}}%
+        {{hash=af01f6a423a466b823a2d5d2b5dc692a}{Тулупьев}{Т\bibinitperiod}{А.\bibnamedelimi Л.}{А\bibinitperiod\bibinitdelim Л\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {М.}%
+      }
+      \strng{namehash}{8e78e5b82e348dc2375af7708fc66474}
+      \strng{fullhash}{8e78e5b82e348dc2375af7708fc66474}
+      \field{sortinit}{0}
+      \field{labeltitle}{Самообучающиеся системы}
+      \field{hyphenation}{russian}
+      \field{title}{Самообучающиеся системы}
+      \field{year}{2009}
+    \endentry
+    \entry{encog}{online}{}
+      \field{sortinit}{0}
+      \field{labeltitle}{{Encog Machine Learning Framework}}
+      \field{hyphenation}{english}
+      \field{title}{{Encog Machine Learning Framework}}
+      \verb{url}
+      \verb http://www.heatonresearch.com/encog
+      \endverb
+    \endentry
+    \entry{quickprop}{report}{}
+      \name{labelname}{1}{}{%
+        {{hash=a54ee48d669ea446e545f269190cf89f}{Fahlman}{F\bibinitperiod}{Scott\bibnamedelima E.}{S\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=a54ee48d669ea446e545f269190cf89f}{Fahlman}{F\bibinitperiod}{Scott\bibnamedelima E.}{S\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{a54ee48d669ea446e545f269190cf89f}
+      \strng{fullhash}{a54ee48d669ea446e545f269190cf89f}
+      \field{sortinit}{0}
+      \field{labeltitle}{An empirical study of learning speed in back-propagation networks}
+      \field{hyphenation}{english}
+      \field{title}{An empirical study of learning speed in back-propagation networks}
+      \field{type}{techreport}
+      \field{year}{1988}
+    \endentry
+    \entry{average}{misc}{}
+      \name{labelname}{1}{}{%
+        {{hash=4a967ba9a52047b379f3f4b18539a068}{Mahadevan}{M\bibinitperiod}{Sridhar}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=4a967ba9a52047b379f3f4b18539a068}{Mahadevan}{M\bibinitperiod}{Sridhar}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{4a967ba9a52047b379f3f4b18539a068}
+      \strng{fullhash}{4a967ba9a52047b379f3f4b18539a068}
+      \field{sortinit}{0}
+      \field{labeltitle}{Average Reward Reinforcement Learning: Foundations, Algorithms, and Empirical Results}
+      \field{hyphenation}{english}
+      \field{title}{Average Reward Reinforcement Learning: Foundations, Algorithms, and Empirical Results}
+      \field{year}{1996}
+    \endentry
+    \entry{average-discounted}{inproceedings}{}
+      \name{labelname}{2}{}{%
+        {{hash=a92047935cdd86c68d4aa9cd6fa1eced}{Tsitsiklis}{T\bibinitperiod}{John\bibnamedelima N.}{J\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+        {{hash=fea8ddee95349ff4e4411c39872af2c2}{Roy}{R\bibinitperiod}{Benjamin\bibnamedelima Van}{B\bibinitperiod\bibinitdelim V\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=a92047935cdd86c68d4aa9cd6fa1eced}{Tsitsiklis}{T\bibinitperiod}{John\bibnamedelima N.}{J\bibinitperiod\bibinitdelim N\bibinitperiod}{}{}{}{}}%
+        {{hash=fea8ddee95349ff4e4411c39872af2c2}{Roy}{R\bibinitperiod}{Benjamin\bibnamedelima Van}{B\bibinitperiod\bibinitdelim V\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {MIT}%
+      }
+      \strng{namehash}{2f3adb1e53fd0f1c45f00711bb1bab68}
+      \strng{fullhash}{2f3adb1e53fd0f1c45f00711bb1bab68}
+      \field{sortinit}{0}
+      \field{labeltitle}{On Average Versus Discounted Reward Temporal-Difference Learning}
+      \field{booktitle}{Machine Learning}
+      \field{hyphenation}{english}
+      \field{title}{On Average Versus Discounted Reward Temporal-Difference Learning}
+      \field{year}{1999}
+      \field{pages}{179\bibrangedash 191}
+    \endentry
+    \entry{r-learning}{inproceedings}{}
+      \name{labelname}{1}{}{%
+        {{hash=66b090e34ebff790c43d64e6788e90a0}{Schwartz}{S\bibinitperiod}{Anton}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=66b090e34ebff790c43d64e6788e90a0}{Schwartz}{S\bibinitperiod}{Anton}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{66b090e34ebff790c43d64e6788e90a0}
+      \strng{fullhash}{66b090e34ebff790c43d64e6788e90a0}
+      \field{sortinit}{0}
+      \field{labeltitle}{A reinforcement learning method for maximizing undiscounted rewards}
+      \field{booktitle}{Proceedings of the Tenth International Conference on Machine Learning}
+      \field{hyphenation}{english}
+      \field{title}{A reinforcement learning method for maximizing undiscounted rewards}
+      \field{year}{1993}
+      \field{pages}{298\bibrangedash 305}
+    \endentry
+    \entry{ii}{book}{}
+      \name{labelname}{1}{}{%
+        {{hash=584859883b14fccdf46e02c1c608a25e}{Редько}{Р\bibinitperiod}{В.\bibnamedelimi Г.}{В\bibinitperiod\bibinitdelim Г\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=584859883b14fccdf46e02c1c608a25e}{Редько}{Р\bibinitperiod}{В.\bibnamedelimi Г.}{В\bibinitperiod\bibinitdelim Г\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {М.}%
+      }
+      \list{publisher}{1}{%
+        {КомКнига}%
+      }
+      \strng{namehash}{584859883b14fccdf46e02c1c608a25e}
+      \strng{fullhash}{584859883b14fccdf46e02c1c608a25e}
+      \field{sortinit}{0}
+      \field{labeltitle}{{От моделей поведения к искусственному интеллекту}}
+      \field{hyphenation}{russian}
+      \field{title}{{От моделей поведения к искусственному интеллекту}}
+      \field{year}{2010}
+    \endentry
+    \entry{delayed}{inproceedings}{}
+      \name{labelname}{5}{}{%
+        {{hash=16fdfa3f2cb863efb53d0d2d023286da}{Strehl}{S\bibinitperiod}{Alexander\bibnamedelima L.}{A\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{hash=09b19a7bef3ca63e5cf4af03d2b00ea0}{Li}{L\bibinitperiod}{Lihong}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=bd89dcc3c60eec7fa452ec4867cd8b92}{Wiewiora}{W\bibinitperiod}{Eric}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=3b32f20ce03981cb315259a6fd0a3068}{Langford}{L\bibinitperiod}{John}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=f1339c61cae259302fb7026ec82176ee}{Littman}{L\bibinitperiod}{Michael\bibnamedelima L.}{M\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{5}{}{%
+        {{hash=16fdfa3f2cb863efb53d0d2d023286da}{Strehl}{S\bibinitperiod}{Alexander\bibnamedelima L.}{A\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{hash=09b19a7bef3ca63e5cf4af03d2b00ea0}{Li}{L\bibinitperiod}{Lihong}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=bd89dcc3c60eec7fa452ec4867cd8b92}{Wiewiora}{W\bibinitperiod}{Eric}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=3b32f20ce03981cb315259a6fd0a3068}{Langford}{L\bibinitperiod}{John}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=f1339c61cae259302fb7026ec82176ee}{Littman}{L\bibinitperiod}{Michael\bibnamedelima L.}{M\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{9af6f61b10823737b8a16f2277a5ff58}
+      \strng{fullhash}{9af6f61b10823737b8a16f2277a5ff58}
+      \field{sortinit}{0}
+      \field{labeltitle}{{PAC} {M}odel-free {R}einforcement {L}earning}
+      \field{booktitle}{Proceedings of the 23rd International Conference on Machine Learning (ICML 2006)}
+      \field{hyphenation}{english}
+      \field{title}{{PAC} {M}odel-free {R}einforcement {L}earning}
+      \field{year}{2006}
+      \field{pages}{881\bibrangedash 888}
+    \endentry
+    \entry{watchmaker}{online}{}
+      \field{sortinit}{0}
+      \field{labeltitle}{{Watchmaker Framework for Evolutionary Computation}}
+      \field{hyphenation}{english}
+      \field{title}{{Watchmaker Framework for Evolutionary Computation}}
+      \verb{url}
+      \verb http://watchmaker.uncommons.org
+      \endverb
+    \endentry
+    \entry{single-from-multi}{incollection}{}
+      \name{labelname}{2}{}{%
+        {{hash=d59c2f5d3dbeda1dd30e20cb03fa2bdc}{Neumann}{N\bibinitperiod}{Frank}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=5021f98d13876bd4594ef3f15a12cc2b}{Wegener}{W\bibinitperiod}{Ingo}{I\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=d59c2f5d3dbeda1dd30e20cb03fa2bdc}{Neumann}{N\bibinitperiod}{Frank}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=5021f98d13876bd4594ef3f15a12cc2b}{Wegener}{W\bibinitperiod}{Ingo}{I\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{4}{}{%
+        {{hash=0c9676aa4aea3a726ac0eb21f39f1c43}{Knowles}{K\bibinitperiod}{Joshua}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=2dda259bf0e15a8e1f5fc10737045918}{Corne}{C\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+        {{hash=b11d1da0cc2920eef235d484e6b858ef}{Deb}{D\bibinitperiod}{Kalyanmoy}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=0d56f1c18508bde9ca047c2209905ace}{Chair}{C\bibinitperiod}{Deva\bibnamedelima Raj}{D\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{7d699d70a06ff669f6d4960d1151df8e}
+      \strng{fullhash}{7d699d70a06ff669f6d4960d1151df8e}
+      \field{sortinit}{0}
+      \field{labeltitle}{Can Single-Objective Optimization Profit from Multiobjective Optimization?}
+      \field{booktitle}{Multiobjective Problem Solving from Nature}
+      \field{hyphenation}{english}
+      \field{series}{Natural Computing Series}
+      \field{title}{Can Single-Objective Optimization Profit from Multiobjective Optimization?}
+      \field{year}{2008}
+      \field{pages}{115\bibrangedash 130}
+    \endentry
+    \entry{helpers}{article}{}
+      \name{labelname}{1}{}{%
+        {{hash=ff10b29d24e9a12e0c93fbd5e9e3fed8}{Jensen}{J\bibinitperiod}{Mikkel\bibnamedelima T.}{M\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=ff10b29d24e9a12e0c93fbd5e9e3fed8}{Jensen}{J\bibinitperiod}{Mikkel\bibnamedelima T.}{M\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{ff10b29d24e9a12e0c93fbd5e9e3fed8}
+      \strng{fullhash}{ff10b29d24e9a12e0c93fbd5e9e3fed8}
+      \field{sortinit}{0}
+      \field{labeltitle}{Helper-Objectives: Using Multi-Objective Evolutionary Algorithms for Single-Objective Optimisation: Evolutionary Computation Combinatorial Optimization}
+      \field{hyphenation}{english}
+      \field{journaltitle}{Journal of Mathematical Modelling and Algorithms}
+      \field{number}{4}
+      \field{title}{Helper-Objectives: Using Multi-Objective Evolutionary Algorithms for Single-Objective Optimisation: Evolutionary Computation Combinatorial Optimization}
+      \field{volume}{3}
+      \field{year}{2004}
+      \field{pages}{323\bibrangedash 347}
+    \endentry
+    \entry{paes}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=269fe6d424c9b56092891e20ae3b03ed}{Knowles}{K\bibinitperiod}{J.\bibnamedelimi D.}{J\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{hash=74c65ed896b18598dbc8d69e0f3e9250}{Corne}{C\bibinitperiod}{D.\bibnamedelimi W.}{D\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=269fe6d424c9b56092891e20ae3b03ed}{Knowles}{K\bibinitperiod}{J.\bibnamedelimi D.}{J\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{hash=74c65ed896b18598dbc8d69e0f3e9250}{Corne}{C\bibinitperiod}{D.\bibnamedelimi W.}{D\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{4fc49439f3d630c861cf8ce5c73b6f7c}
+      \strng{fullhash}{4fc49439f3d630c861cf8ce5c73b6f7c}
+      \field{sortinit}{0}
+      \field{labeltitle}{{Approximating the nondominated front using the Pareto archived evolution strategy}}
+      \field{hyphenation}{english}
+      \field{journaltitle}{Evolutionary Computation}
+      \field{number}{8}
+      \field{title}{{Approximating the nondominated front using the Pareto archived evolution strategy}}
+      \field{volume}{2}
+      \field{year}{2000}
+      \field{pages}{149\bibrangedash 172}
+    \endentry
+    \entry{dcga}{thesis}{}
+      \name{labelname}{1}{}{%
+        {{hash=918bf14d43092d1fda24555d89c68494}{Mahfoud}{M\bibinitperiod}{S.\bibnamedelimi W.}{S\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=918bf14d43092d1fda24555d89c68494}{Mahfoud}{M\bibinitperiod}{S.\bibnamedelimi W.}{S\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+      }
+      \list{institution}{1}{%
+        {University of Illinois at Urbana-Champaign}%
+      }
+      \list{location}{1}{%
+        {Urbana, IL, USA}%
+      }
+      \strng{namehash}{918bf14d43092d1fda24555d89c68494}
+      \strng{fullhash}{918bf14d43092d1fda24555d89c68494}
+      \field{sortinit}{0}
+      \field{labeltitle}{{Niching methods for genetic algorithms}}
+      \field{hyphenation}{english}
+      \field{month}{02}
+      \field{title}{{Niching methods for genetic algorithms}}
+      \field{type}{phdthesis}
+      \field{year}{1995}
+    \endentry
+    \entry{vestnik}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=f5c7ff90de3f57285aaa93db0f05d717}{Афанасьева}{А\bibinitperiod}{А.\bibnamedelimi С.}{А\bibinitperiod\bibinitdelim С\bibinitperiod}{}{}{}{}}%
+        {{hash=6928f38bb28e1f304c54a7168f971156}{Буздалов}{Б\bibinitperiod}{М.\bibnamedelimi В.}{М\bibinitperiod\bibinitdelim В\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=f5c7ff90de3f57285aaa93db0f05d717}{Афанасьева}{А\bibinitperiod}{А.\bibnamedelimi С.}{А\bibinitperiod\bibinitdelim С\bibinitperiod}{}{}{}{}}%
+        {{hash=6928f38bb28e1f304c54a7168f971156}{Буздалов}{Б\bibinitperiod}{М.\bibnamedelimi В.}{М\bibinitperiod\bibinitdelim В\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{420f050b1b0da4f42365726930467323}
+      \strng{fullhash}{420f050b1b0da4f42365726930467323}
+      \field{sortinit}{0}
+      \field{labeltitle}{Выбор функции приспособленности особей генетического алгоритма с помощью обучения с подкреплением}
+      \field{hyphenation}{russian}
+      \field{journaltitle}{Научно-технический вестник информационных технологий, механики и оптики}
+      \field{number}{1(77)}
+      \field{title}{Выбор функции приспособленности особей генетического алгоритма с помощью обучения с подкреплением}
+      \field{year}{2012}
+      \field{pages}{77\bibrangedash 81}
+    \endentry
+    \entry{strings}{inproceedings}{}
+      \name{labelname}{2}{}{%
+        {{hash=e4c589a05d69d8bb42460b16fa778f5e}{Afanasyeva}{A\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=507c0880b8218ebc62746eda9f18cf9d}{Buzdalov}{B\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=e4c589a05d69d8bb42460b16fa778f5e}{Afanasyeva}{A\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=507c0880b8218ebc62746eda9f18cf9d}{Buzdalov}{B\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Honolulu, HI, USA}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Computer Society}%
+      }
+      \strng{namehash}{cc7ee9d3b55d2d07d582c8c82cae4d16}
+      \strng{fullhash}{cc7ee9d3b55d2d07d582c8c82cae4d16}
+      \field{sortinit}{0}
+      \field{labeltitle}{Choosing Best Fitness Function with Reinforcement Learning}
+      \field{booktitle}{Proceedings of the Tenth International Conference on Machine Learning and Applications, ICMLA 2011}
+      \field{hyphenation}{english}
+      \field{title}{Choosing Best Fitness Function with Reinforcement Learning}
+      \field{volume}{2}
+      \field{year}{2011}
+      \field{pages}{354\bibrangedash 357}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

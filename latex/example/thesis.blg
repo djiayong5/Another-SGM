@@ -1,0 +1,16 @@
+[0] Config.pm:361> INFO - This is Biber 1.5
+[1] Config.pm:364> INFO - Logfile is 'thesis.blg'
+[141] biber-MSWIN:190> INFO - === %a %b %e, %Y, %H:%M:%S
+[141] Biber.pm:327> INFO - Reading 'thesis.bcf'
+[282] Utils.pm:167> WARN - Warning: Found biblatex control file version 2.4, expected version 2.3
+[284] Biber.pm:619> INFO - Found 41 citekeys in bib section 0
+[319] Biber.pm:2976> INFO - Processing section 0
+[349] Biber.pm:3086> INFO - Looking for bibtex format file 'thesis.bib' for section 0
+[355] bibtex.pm:889> INFO - Decoding LaTeX character macros into UTF-8
+[370] bibtex.pm:764> INFO - Found BibTeX data source 'thesis.bib'
+[777] Biber.pm:2860> INFO - Overriding locale 'English_United States.1252' default tailoring 'variable = shifted' with 'variable = non-ignorable'
+[778] Biber.pm:2866> INFO - Sorting 'entry' list 'none' keys
+[778] Biber.pm:2870> INFO - No sort tailoring available for locale 'English_United States.1252'
+[1228] bbl.pm:462> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[1231] bbl.pm:535> INFO - Output to thesis.bbl
+[1232] Biber.pm:107> INFO - WARNINGS: 1

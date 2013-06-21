@@ -1,0 +1,71 @@
+\documentclass[14pt]{article} % use larger type; default would be 10pt
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[english,russian]{babel}
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+\usepackage{graphicx} % support the \includegraphics command and options
+\usepackage{amssymb,amsfonts,amsmath,mathtext,cite,enumerate,float} 
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+
+\algrenewcommand\algorithmicrequire{\textbf{Precondition:}}
+\algrenewcommand\algorithmicensure{\textbf{Postcondition:}}
+\AtBeginDocument{\renewcommand{\thesection}{}}
+\AtBeginDocument{\renewcommand{\thesubsection}{}}
+
+\title{Semi-global matching}
+\author{Temp}
+\date{}
+
+\begin{document}
+\maketitle
+
+
+$$L_r(p, d) = C(p, d) $$ $$+ \min ( L_r(p - r, d), L_r (p - r, d - 1) + P_1, L_r(p - r, d + 1) + P_1, \min_{i} (p - r, i) + P_2) $$ $$- \min\limits_{k}  L_r(p - r, k)$$
+
+Алгоритм построения карты:
+\begin{itemize}
+ \item Подсчет matching costs $C(p,d), d \in [0, d_max]$. На данном шаге возможны предварительные фильтры входного изображения (mean, rank,...)
+ \item Поиск оптимальной карты стереоглубины на основе стоимостей. 
+ \item Постпроцессинг
+\end{itemize} 
+
+
+Matching costs and filters: AD,SAD,BT, NCC, MNCC, ZSAD, BilSub, Log, Rank, SoftRank, Census, Ordina, MIl \\
+Census: $ p \to (f_{(-n)(-m)}, f_{(-n+1)(-m)}, ...,,  f_{nm})| p_{ij} \in N_p,  f_{ij} = T \| p_{ij} > p \| $
+
+Stereo Algorithms:
+\begin{itemize}
+\item Energy \\
+    Обычно решается задача минимизации функции энергии. \\
+     Пример: $E = E_data  + lamda * E_{smooth} $,  где  \\
+     $ E_{data} = \sum_p C(p, D_p) $ -  сумма попиксельных стоимостей сопоставления \\
+      $E_{smooth} = \sum_{p} \sum_{q \in N_p}(P_1 T \|D_p-D_q\| + P_2 T\|D_p -D_q\|)$ -  штрафы за изменение значения диспаратности\\
+   Есть два похода к решению данной задачи: глобальная оптимизация на всем изображении (2D, долго) и оптимизация построчно с помощью динамики (1D). Hirschmuller  предложил оптимизировать динамикой сразу в нескольких направлениях. Затем складывать стоимости и выбирать вариант с минимальной стоимостью.
+\item Local window for optimizing
+\end{itemize}
+
+SGM
+\begin{itemize}
+ \item Matching cost: MI 
+ \item Stereo algorithm: динамика в 8 направлениях
+\end{itemize} 
+
+Существующие улучшения:
+\begin{itemize}
+ \item Matching cost: hmi - hierarhical mi. Сначала считаем mi для картинки 1/16, потом увеличиваем карту диспаратности в 2 раза и считаем для картинки 1/8 только одну итерацию... Тогда наши затраты $1 +1/2^3 + 1/4^3 + 1/8^3 + 3 / 16^3  \approx 1.14$ вместо 3.  Выйгрыш только в производительности 
+ \item Matching cost: Census, bilSub. \\ Дало лучшие результаты, относительно других matching costs: большая устойчивость к изменениям одной из фотографий.
+ \item Tiling. Разбиение больших фотографий на множество маленьких картинок, подсчет карт стереоглубины для них, а затем склеивание. При склеивании считать новую диспаратность как взвешенную сумму.
+ \item Postprocessing: Consistency check \\
+ Проверка правильности построения, с помощью повторного запуска алгоритм с поменянными местами изображениями
+\item Postprocessing: Intensity consistent disparity selection \\
+ Изначально плохое качество работы на картинках с untextured background.  TODO не входит в рамки изучаемой темы
+\item Postprocessing: Интерполяция неизвестных пикселей TODO не входит в рамки изучаемой темы
+\item Stereo Algorithm: use $P_2 = \frac{P'_2}{|I_{bp} - I_{bq}|}$
+]item Stereo Algorithm: eSgm \\
+ Улучшение потребления памяти SGM засчет другого обхода динамики. Результат обработки эквивалентен стандартному алгоритму. $ O( w \times w \times d_{max})$ vs $O(w \times h + w \times d_{max}) $ Также позволило составлять матрицу доверия карте диспаратности (confidence), появились потери в скорости. Рационально использовать для $ d_max > 100 $ 
+\end{itemize} 
+
+
+\end{document}
