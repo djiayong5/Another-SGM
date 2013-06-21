@@ -15,61 +15,61 @@
 using namespace cv;
 using namespace std;
 
-
-#define SIMPLE 1
-#define RANGE 2
-
-void test(int type){
-	const string path("X:\\Dropbox\\SGM\\dataset\\test\\");
-	const string files[] = {"tsukuba", "venus", "cones",  
-							"teddy", "Aloe", "Cloth4", 
-							"half_alloe", "half_alloe", "half_alloe", 
-							"half_alloe", "half_alloe", "full_alloe"};
-	const int scales[] = { 16, 8, 4, 4, 1, 1, 1, 1, 1, 1, 1};
+void test(StereoCorrespondence& alg){
+	const char* path = "X:\\Dropbox\\SGM\\dataset\\test";
+	const char* files[] = {"tsukuba", "venus", "cones",  
+		"teddy", "Aloe", "Cloth4", 
+		"half_alloe", "half_alloe", "half_alloe", 
+		"half_alloe", "half_alloe", "full_alloe", 
+		"test1"};
+	const int scales[] = { 16, 8, 4, 
+		4, 1, 1, 
+		1, 1, 1,
+		1, 1, 1,
+		4};
 	const int max_disps[] = {70, 70, 70,  
-							70, 70, 70, 
-							100, 150, 250, 
-							300, 350, 150};
-	for(int i = 10; i < 11; ++i){
-		const string file = files[i] + "\\";
-		const Mat left = imread(path + file + "imL.png", 0);
-		const Mat right = imread(path + file + "imR.png", 0);
+		70, 70, 70, 
+		100, 150, 250, 
+		300, 350, 200,
+		50};
+	//for(int i = 6; i < 11; ++i){
+
+	//for(int i = 7; i < 8; ++i){
+	for(int i = 0; i < 4; ++i){
+		std::cout << fmt("%s\\%s\\imL.png", path, files[i]) << "\n";
+		const Mat left = imread(fmt("%s\\%s\\imL.png", path, files[i]), 0);
+		const Mat right = imread(fmt("%s\\%s\\imR.png", path, files[i]), 0);
+		
 		max_disp = max_disps[i];
-		Mat disp;
-		std::string add_info;
-		if(type == SIMPLE){
-			disp = simpleProcess(left, right);
-			add_info = "SIMPLE";
-		} else {
-			disp = processWithRange(left, right);
-			add_info = "RANGE";
-		}
-		cv::imwrite(path + "disps\\" + files[i] + "_" + add_info + ".png", disp * scales[i] * 256);
+		std::cout << alg.getName() << " with max disp " << max_disp << "\n";
+
+		Mat disp = alg.compute(left, right);
+		std::string alg_name = alg.getName();
+		cv::imwrite(fmt("%s\\disps\\%s_%s.png", path, files[i] , alg_name.c_str()), disp * scales[i] * 256);
 	}
 }
 
-void test2(){
-	const string path("X:\\Dropbox\\SGM\\dataset\\test\\");
-	for(int curr_disp = 100; curr_disp < 350; curr_disp += 50){
-		const Mat left = imread(path + "half_alloe\\imL.png", 0);
-		const Mat right = imread(path + "half_alloe\\imR.png", 0);
-		const Mat readDisp = imread(path + "disps\\half_alloe_RANGE.png", 0);
-		Mat estDisp;
-		readDisp.convertTo(estDisp, CV_16U, 1);
-		Mat minDisp = estDisp.clone();
-		Mat maxDisp = estDisp.clone();
-		max_disp = curr_disp;
-		for(int y = 0; y < estDisp.size().height; ++y){
-			for(int x = 0; x < estDisp.size().width; ++x){
-				ushort d = *estDisp.ptr<ushort>(y,x);
-				*minDisp.ptr<ushort>(y,x) = std::max(0, d - delta);
-				*maxDisp.ptr<ushort>(y,x) = std::min(max_disp, d + delta);
-			}
-		}
-		
-		Mat	disp = processWithRange(left, right, minDisp, maxDisp);
-		std::cout << max_disp << "\n";
-		cv::imwrite(path + "disps\\half_alloe_RANGE_2.png", disp * 256);
+
+void test2(StereoCorrespondence& alg){
+	const char* path = "X:\\Dropbox\\SGM\\dataset\\photos";
+	const int downscale = 4; //todo
+
+	for(int i = 1; i < 20; ++i){
+		std::cout << fmt("%s for %s\\rect_%d_0.png", alg.getName().c_str(), path, i) << "\n";
+		const Mat tleft = imread(fmt("%s\\rect_%d_0.png", path, i), 0);
+		const Mat tright = imread(fmt("%s\\rect_%d_1.png", path, i), 0);
+		Mat left;
+		Mat right;
+
+		const Size size(tleft.size().width / downscale, tleft.size().height / downscale);
+
+		cv::resize(tleft, left, size);
+		cv::resize(tright, right, size);
+
+		max_disp = 800 / downscale;
+		Mat disp = alg.compute(left, right);
+		std::string alg_name = alg.getName(); ;
+		cv::imwrite(fmt("%s\\rect_%d_0_%s.png", path, i, alg_name.c_str()), disp * 256);
 	}
 }
 
@@ -91,16 +91,21 @@ void calError(){
 }
 
 int main(){
-	//test2();
-	std::cout << "SIMPLE\n";
-	//test(SIMPLE);
-	std::cout << "RANGE\n";
-	test(RANGE);
+	processTimer.changeState(true);
+	estimatedTimer.changeState(true);
+	//test(Sgbm());
+	//test(BM());
+	//test(SGM());
+	test(RangeSgm(Sgbm()));
+	test(RangeSgm(BM()));
 	std::cout << "HAPPY END";
 	getchar();
-	//	temp2();
 }
+//todo бага в рэндж подсчете
+
 
 //Bad pixels [0.786412, 0, 0, 0] penalty1 19 penalty2 33 - blur + uniq -
 //Bad pixels [0.775164, 0, 0, 0] penalty1 19 penalty2 33 - blur - uniq -
 //Bad pixels [0.768847, 0, 0, 0] penalty1 19 penalty2 33 - blur - uniq +
+
+//6464 ms

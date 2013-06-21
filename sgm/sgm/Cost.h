@@ -164,3 +164,56 @@ public:
 	const int k;
 	const int max_disp;
 };
+
+
+class RangeCostCalculator : public CostCalculator {
+public:
+	RangeCostCalculator(const Mat& left, const Mat& right, const Size& block, const int max_disp, const int k, const Mat& minDisp, const Mat& maxDisp) 
+		: CostCalculator(left, right, block), minDisp(minDisp), maxDisp(maxDisp) {
+		calculateCensusCost(censusLeft, censusRight, max_disp, k);	
+	}
+
+	virtual const uchar* getCosts(const int& y, const int& x) const {
+		return costs.ptr<uchar>(y,x);
+	}
+
+	virtual uchar getCost( const int& y, const int& x, const int& d) const {
+		return *costs.ptr<uchar>(y,x,d - *minDisp.ptr<uchar>(y,x));		
+	}
+
+	virtual const uchar* getCosts(const int& y, const int& x, const int& fromDisp, const int& toDisp) const {
+		return costs.ptr<uchar>(y,x);	
+	}
+	
+protected:
+	//use k = +- 1 for (left to right) cost or (right to left) cost
+	void calculateCensusCost(const Mat& censusLeft, const Mat& censusRight, const int max_disp, const int k){
+		timer.start("Costs census calculating");
+		int size[3];
+		size[0] = censusLeft.size().height;
+		size[1] = censusLeft.size().width;
+		size[2] = max_disp;
+		costs = MatND(3, size, CV_8U);
+		for(int y = 0; y < size[0]; ++y){
+			const uint64_t* iterRight = censusRight.ptr<uint64_t>(y);
+			const uint64_t* iterLeft =  censusLeft.ptr<uint64_t>(y);
+
+			for(int x = 0; x < size[1]; ++x){
+				uchar fromDisp = *minDisp.ptr<uchar>(y,x);
+				uchar toDisp = *maxDisp.ptr<uchar>(y,x); 
+				for(int d = fromDisp ; d < toDisp && x + k * d < size[1] && x + k * d >= 0; ++d){
+					// if image was done from the left - pixel will be on right side
+					const uint64_t r = iterRight[x];
+					const uint64_t l = iterLeft[x + k * d];
+					*costs.ptr<uchar>(y,x,d - fromDisp) = hammingDistance(l, r);
+				}
+
+			}
+		}
+		timer.finish();
+	}
+
+	const Mat& minDisp;
+	const Mat& maxDisp;
+	MatND costs;
+};

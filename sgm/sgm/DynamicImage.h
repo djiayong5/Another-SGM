@@ -14,23 +14,6 @@
 using namespace cv;
 using namespace std;
 
-
-#pragma once
-#include <queue>
-#include <fstream>
-
-#include <opencv2/imgproc/imgproc.hpp> 
-#include <opencv2/core/core.hpp>        
-#include <opencv2/opencv.hpp>
-
-#include "Timer.h"
-#include "Properties.h"
-#include "Utils.h"
-
-;
-using namespace cv;
-using namespace std;
-
 //It can be done faster by 2 passes for all directions, but .....
 class DynamicDirection{
 public:
@@ -44,7 +27,6 @@ public:
 		sizes[0] = size.height;
 		sizes[1] = size.width;
 		sizes[2] = max_disp_range;
-
 		l = MatND(3, sizes, CV_8U, Scalar(255));
 
 		std::queue<Point2i> queue;
@@ -173,6 +155,7 @@ public:
 		sizes[1] = size.width;
 		sizes[2] = maxDispRange;
 		MatND sum(3, sizes, CV_16U, Scalar(0));
+
 		for(int i = 0; i < DIRS; ++i){
 			MatND l = dd.calculateL(Point2i(r_x[i], r_y[i]));
 			timer.start("Sum calculating");

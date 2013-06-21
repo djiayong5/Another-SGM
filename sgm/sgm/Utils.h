@@ -1,10 +1,14 @@
 
 #pragma once
 
+#include <stdarg.h>
+#include <cstdio>
+#include <string>
+
 #include <opencv2/imgproc/imgproc.hpp> 
 #include <opencv2/core/core.hpp>        
 #include <opencv2/opencv.hpp>
-
+;
 using namespace cv;
 using namespace std;
 
@@ -21,38 +25,32 @@ struct VecComparator {
 	}
 };
 
-Mat scaleDisp(Mat in){
-	int scale = 3;
-	if(in.size().width < 400){
-		scale = 6;
-	}
-	return in * scale;
+std::string fmt(const std::string fmt, ...) {
+    int size = 100;
+    std::string str;
+    va_list ap;
+    while (1) {
+        str.resize(size);
+        va_start(ap, fmt);
+        int n = vsnprintf((char *)str.c_str(), size, fmt.c_str(), ap);
+        va_end(ap);
+        if (n > -1 && n < size) {
+            str.resize(n);
+            return str;
+        }
+        if (n > -1)
+            size = n + 1;
+        else
+            size *= 2;
+    }
+    return str;
 }
 
-Mat unscaleDisp(Mat in){
-	int scale = 3;
-	if(in.size().width < 400){
-		scale = 6;
-	}
-	return in / scale;
+Mat addCols(const Mat& m, size_t sz){
+	Mat tm(m.rows, m.cols + sz, m.type());
+	m.copyTo(tm(Rect(Point(sz, 0), m.size())));
+	return tm;
 }
-
-class Environment {
-public:
-	Mat left;
-	Mat right;
-	const int max_disp;
-	const int penalty1;
-	const int penalty2;
-	const Size block; 
-	const int sp;
-	const int sr;
-	const int delta;
-
-	Mat maxDisp;
-	Mat minDisp;
-}
-
 /*
 opencv_core244d.lib
 opencv_highgui244d.lib
